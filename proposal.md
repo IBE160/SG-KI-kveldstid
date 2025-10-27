@@ -1,158 +1,112 @@
-Case -- Ai Cv & Job Application Assistant (student‑focused, Aligned To
-Brief) -- En
+AI CV & Job Application Assistant (Student-Focused) 
 
-**\## Case Title**
+Background 
 
-AI CV & Job Application Assistant (Student‑Focused)
+Students often apply to internships and entry-level roles using generic CVs and cover letters that fail to pass Applicant Tracking Systems (ATS) and do not address key job requirements. This project demonstrates how AI can help students tailor their applications, identify missing qualifications, and understand how AI is used in modern recruiting workflows. 
 
-**\## Background**
+Purpose 
 
-Students often apply to internships and entry‑level roles with generic
-applications that fail ATS filters and do not explicitly address
-must‑have requirements. A practical assistant should help them tailor
-content, surface missing qualifications, and demonstrate how AI is used
-in modern recruiting workflows.
+Create a web-based AI assistant that takes a student’s CV and a specific job ad as input and produces: 
+- A tailored cover letter in a professional tone 
+- CV improvement suggestions and bullet rewrites 
+- A gap analysis highlighting missing or partial matches 
+- ATS optimization tips (keywords, structure, and metrics) 
 
-**\## Purpose**
+Target Users 
 
-Build a web application that takes a student's CV and a specific job ad
-and produces:
+- Primary: Students and recent graduates applying for internships or entry-level positions 
+- Secondary: Career advisors and general job seekers (optional extensions) 
 
-\- a tailored cover letter in the requested tone/language,
+Core Functionality 
 
-\- CV improvement suggestions,
+**Must Have (MVP)** 
+- Upload CV (PDF/DOCX/TXT) → Extract structured text and skills using Unstructured.io or PyMuPDF 
+- Paste job ad → Extract must-have/nice-to-have requirements and keywords 
+- Semantic matching between CV and job ad using OpenAI text-embedding-3-small 
+- Generate tailored cover letter and CV bullet rewrites via GPT-4-turbo (low temperature, no fabrication) 
+- Display a gap table (match / partial / missing) with evidence pointers 
+- Provide simple ATS optimization feedback (keyword density, formatting, action verbs) 
+- Export results to Markdown (DOCX/PDF as stretch goals) 
+ 
+**Nice to Have (Optional Extensions)** 
+- Multi-agent recruiter panel for explainable subscores 
+- Interview question generator based on must-have gaps 
+- Bias auditor to flag gendered or exclusionary phrasing 
+- Tone mimicry from sample texts and ATS simulator 
 
-\- a clear gap analysis (missing and partially matched qualifications),
-and
+Technical Architecture 
 
-\- simple ATS optimization guidance.
+- Frontend: React with Tailwind CSS (responsive and accessible UI) 
+- Backend: Python FastAPI serving REST endpoints for parsing, analysis, and generation 
+- AI Components: OpenAI API for embeddings and text generation 
+- Document Parsing: Unstructured.io or PyMuPDF for PDF, python-docx for DOCX, plain text as baseline 
+- Export: python-docx (DOCX), reportlab/weasyprint (PDF), Markdown for MVP 
+- Database: Stateless for MVP (no persistence). If extended, use SQLite or PostgreSQL with schema for User, CV, JobAd, Analysis, and GeneratedContent 
 
-**\## Target Users**
+Data Requirements 
 
-Primary: Students and recent graduates (internships and entry‑level
-jobs) Secondary: Other job seekers and career advisors (nice‑to‑have
-support)
+- User: name, email, preferences, consent 
+- CV: raw text, sections, extracted skills 
+- Job Ad: role, company, requirements, keywords 
+- Analysis: match scores, gap list, ATS score 
+- Generated Content: cover letter, rewritten bullets, export type 
 
-**\## Core Functionality**
+Claim-to-Evidence Validation 
 
-**\### Must Have (MVP)**
+All generated claims must be supported by CV evidence through: 
+- Step 1: Regex and keyword matching 
+- Step 2: Embedding-based semantic similarity verification 
 
-**\#### Input & Parsing**
+ATS Optimization Methodology 
 
-\- Upload CV (PDF/DOCX/TXT) → extract sections, bullets, dates, skills
-into JSON
+- Keyword density between job ad and CV 
+- Action verb presence (achieved, implemented, designed) 
+- Quantification rate (numbers, metrics, results) 
+- Section structure (Education, Experience, Skills) 
+- File format and layout compatibility 
 
-\- Paste job ad → extract role, must‑have/nice‑to‑have,
-responsibilities, keywords
+Timeline & Milestones (6 Weeks) 
 
-\- Manual keywords (optional input): user‑provided terms to emphasize
+- Week 1: Project setup, document parsing prototype, basic UI 
+- Week 2: CV/job ad extraction and structured data model 
+- Week 3: Semantic matching and gap analysis implementation 
+- Week 4: Cover letter generation and claim validation 
+- Week 5: ATS optimization module, export functionality, testing 
+- Week 6: Integration testing, UI refinement, documentation, demo 
 
-\- Previous applications (optional input): short text samples to reuse
-preferred arguments/style
+Risk Assessment & Mitigation 
 
-\- Tone/style & language selector (EN/NO)
+- Scope Creep: Focus strictly on MVP, postpone optional features 
+- Parsing Complexity: Start with text-only CVs, add PDF/DOCX later 
+- AI Inaccuracy: Use dual validation (regex + embeddings) 
+- Time Constraints: Iterative weekly milestones with review points 
 
-**\#### Analysis**
+Out of Scope 
 
-\- Semantic matching (embeddings) of requirements ↔ CV content
+- Visual CV design or templates 
+- LinkedIn integration or profile generation 
+- Salary negotiation or job-matching tools 
+- Persistent cloud data storage (MVP is local and stateless) 
+- Multi-language support (English only in MVP) 
 
-\- Gap analysis (match / partial / missing); evidence pointers back to
-CV lines
+User Stories 
 
-\- Simple ATS checks (keyword coverage, formatting hints, action verbs,
-quantification)
+1. As a student, I can upload my CV and a job ad to receive a tailored cover letter. 
+   - Acceptance: The cover letter includes ≥80% of must-have requirements. 
+2. As a student, I can view a gap table showing matched, partial, and missing requirements. 
+   - Acceptance: Gaps are correctly categorized and evidence-linked. 
+3. As a student, I can receive rewritten CV bullet suggestions that improve ATS readability. 
+   - Acceptance: Each rewrite uses action verbs and quantifiable results. 
+4. As a student, I can export the generated content for use in real applications. 
+   - Acceptance: Output is downloadable and correctly formatted (Markdown baseline). 
 
-**\#### Generation**
+Success Criteria 
 
-\- Tailored cover letter (low‑temperature, no‑fabrication)
+- ≥80% of must-have requirements addressed in generated letter 
+- ≥95% of claims verifiable through CV evidence 
+- ≥15pp ATS improvement over baseline CV 
+- ≤5 minutes end-to-end generation time 
 
-\- CV bullet rewrites (STAR, action verbs, numbers)
+Conclusion 
 
-**\#### Output**
-
-\- Letter draft + CV suggestions + gap table + ATS tips
-
-\- Export to DOCX/PDF/MD
-
-**\### Nice to Have (Optional Extensions)**
-
-\- Recruiter Panel (multi‑agent) for explainable sub‑scores (Hiring
-Manager, Recruiter, Specialist, Culture)
-
-\- Interview Question Generator driven by panel concerns and must‑have
-gaps
-
-\- Bias Auditor that flags gendered/age‑coded/ableist/cultural phrasing
-and proposes neutral alternatives
-
-\- Tone mimicking from 2--3 sample texts; ATS simulator with traffic
-lights; multi‑ad comparison
-
-**\## Data Requirements**
-
-\- User (optional in MVP): name, email, language/tone, consents
-
-\- CV: raw text, sections, bullets, extracted skills/entities, evidence
-IDs
-
-\- Job Ad: role, company/location, must‑have/nice‑to‑have,
-responsibilities, keywords
-
-\- Manual Keywords (optional): list of user‑entered terms to prioritize
-
-\- Previous Applications (optional): short snippets for style/argument
-reuse
-
-\- Match Reports: similarity scores, gap list, ATS score, evidence
-mapping
-
-\- Generated Artifacts: letter drafts, rewritten bullets, export
-metadata
-
-**\## Decision Points**
-
-\- Degree of rewriting vs. suggestions only
-
-\- Output formats (DOCX/MD/PDF) and template styles
-
-\- Language/style level (formal, enthusiastic, concise; EN/NO)
-
-**\## Technical Constraints**
-
-\- Security/Authentication: If any data is stored, it must be encrypted;
-access behind login
-
-\- Privacy: MVP runs locally with no persistence; if storage is enabled,
-add auto‑deletion and explicit consent
-
-\- Deterministic generation for letters/rewrites; claim‑to‑evidence
-validation to prevent fabrication
-
-\- Accessible, responsive UI; BMAD workflow (plan → develop → QA →
-flatten)
-
-**\## Success Criteria**
-
-\- Coverage ≥ 80% of must‑have requirements addressed in the letter
-
-\- Precision ≥ 95% of claims traceable to CV evidence
-
-\- ATS +15 pp vs. non‑tailored baseline
-
-\- Time‑to‑result ≤ 5 minutes for the full flow (upload → analyze →
-generate → export)
-
-**\## User Stories**
-
-\- As a student, I upload my CV and paste a job ad to receive a tailored
-cover letter that addresses must‑have requirements.
-
-\- As a student, I want a gap table that shows what I meet, partially
-meet, or miss, so I can adjust my CV accordingly.
-
-\- As a student, I want suggestions that rewrite my CV bullets using
-action verbs and numbers, so my CV becomes more ATS‑friendly.
-
-\- (Optional) As a student, I want panel‑based feedback, interview
-questions, and a bias check to prepare better and avoid exclusionary
-language.
+This improved project proposal provides a technically grounded, feasible, and student-focused AI application. By combining precise NLP parsing, semantic analysis, and validated text generation, the assistant empowers students to craft stronger, evidence-based job applications while learning how AI enhances modern recruitment processes. 
