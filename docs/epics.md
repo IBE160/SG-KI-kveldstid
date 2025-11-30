@@ -1,7 +1,7 @@
 # ibe160 - Epic Breakdown
 
 **Author:** Mort1
-**Date:** 2025-11-25
+**Date:** 2025-11-30
 **Project Level:** (Inferred: Full product + architecture planning for greenfield projects (10-50+ stories typically) Customer-facing application)
 **Target Scale:** (Not specified)
 
@@ -13,188 +13,116 @@ This document provides the complete epic and story breakdown for ibe160, decompo
 
 **Living Document Notice:** This is the initial version. It will be updated after UX Design and Architecture workflows add interaction and technical details to stories.
 
-**Epic 1: User Authentication & Profile Management**
-Goal: Enable users to securely manage their identity and personal data within the application.
+## Epic Summary
 
-**Epic 2: AI Mentor & Planning Engine**
-Goal: Provide users with personalized career guidance and planning capabilities.
+The project is broken down into the following two epics, each designed to deliver a distinct piece of user value.
+
+*   **Epic 1: Foundation & Core Analysis Engine:** This epic focuses on setting up the web application and implementing the core analysis functionality. By the end of this epic, a user will be able to paste their CV and a job description and receive immediate, actionable feedback.
+*   **Epic 2: Content Generation & Export:** Building on the analysis from Epic 1, this epic focuses on generating the tailored cover letter and providing the functionality to export all generated content, delivering the final tangible assets to the user.
 
 ---
 
 ## Functional Requirements Inventory
 
-- FR1: User registration (email/password)
-- FR2: User login/logout
-- FR3: Storage of user's CV
-- FR4: Editing and updating of CV
-- FR5: Conversational interface for career goal setting
-- FR6: Generation of personalized career development plans
-- FR7: Progress tracking and plan adjustments
-- FR8: A database to store user accounts, profiles, and career plans
+Here is the inventory of Functional Requirements (FRs) extracted from the Product Requirements Document:
+
+*   **FR1: Paste CV Content:** As a user, I can paste my CV content (plain text) into the application.
+*   **FR2: Paste Job Description:** As a user, I can paste a job description into the application.
+*   **FR3: Generate Tailored Cover Letter:** As a user, I can get a tailored cover letter based on my CV and a job description.
+*   **FR4: View Gap Analysis:** As a recent graduate, I can see a clear analysis of how my CV matches a job description.
+*   **FR5: Receive CV Improvement Suggestions:** As a job seeker, I can receive suggestions for improving my CV bullet points.
+*   **FR6: Export Generated Content:** As a user, I can export the generated cover letter and CV suggestions.
 
 ---
 
 ## FR Coverage Map
 
-- FR1: User registration (email/password) → Epic 1
-- FR2: User login/logout → Epic 1
-- FR3: Storage of user's CV → Epic 1
-- FR4: Editing and updating of CV → Epic 1
-- FR5: Conversational interface for career goal setting → Epic 2
-- FR6: Generation of personalized career development plans → Epic 2
-  - FR7: Progress tracking and plan adjustments → Epic 2
-  - FR8: A database to store user accounts, profiles, and career plans → Epic 1, Epic 2
+This map shows how the Functional Requirements (FRs) from the PRD are covered by the proposed epics.
+
+*   **Epic 1: Foundation & Core Analysis Engine**
+    *   **FR1:** Paste CV Content
+    *   **FR2:** Paste Job Description
+    *   **FR4:** View Gap Analysis
+    *   **FR5:** Receive CV Improvement Suggestions
+*   **Epic 2: Content Generation & Export**
+    *   **FR3:** Generate Tailored Cover Letter
+    *   **FR6:** Export Generated Content
 
 ---
 
-## Epic 1: User Authentication & Profile Management
+## Epic 1: Foundation & Core Analysis Engine
 
-Goal: Enable users to securely manage their identity and personal data within the application.
+**Goal:** This epic focuses on setting up the web application and implementing the core analysis functionality. By the end of this epic, a user will be able to paste their CV and a job description and receive immediate, actionable feedback.
 
-### Story 1.1: User Registration with Email and Password
+### Story 1.1: Foundational Web Application Setup
+*   **User Story:** As a developer, I want a basic project structure for a web application set up with necessary build tools and dependencies, so that I can start building the UI and features.
+*   **Acceptance Criteria:**
+    *   Given the project is initialized, When I run the development server, Then a blank page is served successfully on a local port.
+    *   And the project includes a linter, a formatter, and a testing framework.
+*   **Technical Notes:** Use Vite for project setup with a React/TypeScript template. Install `tailwindcss` and `shadcn/ui` for the design system.
 
-As a new user,
-I want to create an account with my email and a secure password,
-So that I can access the AI Career Development Assistant.
+### Story 1.2: Implement Two-Panel UX Layout
+*   **User Story:** As a user, I want to see a two-panel layout with an input area on the left and a feedback area on the right, so that I have a clear and intuitive interface.
+*   **Acceptance Criteria:**
+    *   Given I land on the main page, When the page loads, Then I see a large text area on the left half of the screen and an empty panel on the right.
+    *   And the layout is responsive, stacking vertically on mobile screens.
+*   **Technical Notes:** Implement the layout using Flexbox or CSS Grid. Use the `CVInputPanel` custom component for the left panel.
 
-**Acceptance Criteria:**
+### Story 1.3: CV & Job Description Input
+*   **User Story:** As a user, I want to paste my CV and a job description into the application, so that the analysis can begin.
+*   **Acceptance Criteria:**
+    *   Given the two-panel layout, When I paste text into the CV input area, Then the application accepts the text.
+    *   And there is a separate input area for the job description.
+*   **Technical Notes:** For the MVP, we will have two `Textarea` components, one for the CV and one for the job description, to simplify the interaction. An "Analyze" button will trigger the analysis.
 
-**Given** I am on the registration page,
-**When** I enter a valid email and a password (8+ chars, 1 uppercase, 1 number, 1 special char) and confirm it,
-**Then** my account is created and I am logged in.
-
-**And** Given I am on the registration page, When I enter an invalid email format or a weak password, Then I receive an appropriate error message.
-
-**Prerequisites:** None.
-
-**Technical Notes:** Implement email validation (RFC 5322). Password hashing (e.g., bcrypt). Store user credentials securely in the database.
-
-### Story 1.2: User Login and Session Management
-
-As a registered user,
-I want to log in with my credentials and have my session maintained,
-So that I can continue using the assistant without re-authenticating.
-
-**Acceptance Criteria:**
-
-**Given** I have an account,
-**When** I enter my correct email and password on the login page,
-**Then** I am logged in and my session persists.
-
-**And** Given I am logged in, When I navigate through the application, Then my session remains active until I explicitly log out or the session expires.
-**And** Given I enter incorrect credentials, Then I receive an error message "Invalid email or password."
-
-**Prerequisites:** Story 1.1 (User Registration).
-
-**Technical Notes:** Implement JWT-based authentication. Use refresh tokens for session persistence. Secure token storage (e.g., HTTP-only cookies).
-
-### Story 1.3: User Profile for CV Storage and Editing
-
-As a logged-in user,
-I want to store my CV securely in my profile and be able to view and edit it,
-So that I don't have to re-upload it for every application.
-
-**Acceptance Criteria:**
-
-**Given** I am logged in,
-**When** I navigate to my profile,
-**Then** I can see an option to upload/paste my CV.
-
-**And** Given my CV is stored, When I view my profile, Then I can see my CV content and an option to edit it.
-**And** Given I edit my CV and save changes, Then the updated CV is stored in my profile.
-
-**Prerequisites:** Story 1.2 (User Login).
-
-**Technical Notes:** Implement secure storage for user CV data in the database. Provide a rich text editor or markdown editor for CV content. Versioning of CVs (stretch goal for future).
+### Story 1.4: Implement Core Analysis Logic (Gap Analysis & Suggestions)
+*   **User Story:** As a user, I want to click an "Analyze" button and see a gap analysis and CV improvement suggestions, so that I can understand how to improve my CV.
+*   **Acceptance Criteria:**
+    *   Given I have pasted my CV and a job description, When I click the "Analyze" button, Then the feedback panel populates with cards for "Gap Analysis" and "CV Improvement Suggestions".
+    *   And the "Gap Analysis" card shows a list of skills matched, partially matched, and missing.
+    *   And the "CV Improvement Suggestions" card shows at least one actionable suggestion.
+*   **Technical Notes:** This involves creating a service that sends the CV and job description to an AI model (can be simulated initially). The results are then formatted and displayed in `AnalysisCard` components.
 
 ---
 
-## Epic 2: AI Mentor & Planning Engine
+## Epic 2: Content Generation & Export
 
-Goal: Provide users with personalized career guidance and planning capabilities.
+**Goal:** Building on the analysis from Epic 1, this epic focuses on generating the tailored cover letter and providing the functionality to export all generated content, delivering the final tangible assets to the user.
 
-### Story 2.1: Conversational Interface for Career Goal Setting
+### Story 2.1: Generate Tailored Cover Letter
+*   **User Story:** As a user, I want to receive a tailored cover letter based on the analysis of my CV and the job description, so that I have a strong starting point for my application.
+*   **Acceptance Criteria:**
+    *   Given the analysis from Epic 1 is complete, When I click a "Generate Cover Letter" button, Then a new card appears in the feedback panel containing a generated cover letter.
+    *   And the cover letter incorporates skills from my CV that match the job description.
+*   **Prerequisites:** Story 1.4
+*   **Technical Notes:** This will extend the AI service to include a prompt for generating a cover letter based on the CV, job description, and the identified skill gap analysis.
 
-As a user,
-I want to interact with the AI Mentor through a conversational interface to define my career goals,
-So that the mentor can understand my aspirations.
-
-**Acceptance Criteria:**
-
-**Given** I activate "AI Mentor Mode",
-**When** I state my career goals in natural language,
-**Then** the AI Mentor asks clarifying questions to refine my goals.
-
-**And** Given the AI Mentor asks questions, When I provide responses, Then the AI Mentor updates its understanding of my goals.
-
-**Prerequisites:** Story 1.2 (User Login).
-
-**Technical Notes:** Integrate with an LLM for conversational AI. Implement a state management system for the conversation flow. Store conversation history for context.
-
-### Story 2.2: Personalized Career Development Plan Generation
-
-As a user,
-I want the AI Mentor to generate a personalized step-by-step career development plan based on my CV and stated goals,
-So that I have a clear roadmap for my professional growth.
-
-**Acceptance Criteria:**
-
-**Given** I have defined my career goals and provided my CV,
-**When** I request a career development plan,
-**Then** the AI Mentor generates a plan with recommended skills, courses, and job types.
-
-**And** Given the plan is generated, When I review it, Then it clearly reflects my CV content and stated goals.
-
-**Prerequisites:** Story 1.3 (User Profile for CV Storage), Story 2.1 (Conversational Interface).
-
-**Technical Notes:** Develop a logic layer to combine CV analysis, goal understanding, and LLM output. Store generated plans in the database.
-
-### Story 2.3: Progress Tracking and Plan Adjustment
-
-As a user,
-I want to track my progress against the AI Mentor's plan and have the plan adjust to my achievements,
-So that I stay motivated and on track.
-
-**Acceptance Criteria:**
-
-**Given** I have a career development plan,
-**When** I mark a step as complete,
-**Then** my progress is updated in the application.
-
-**And** Given I make significant progress or changes to my goals, When I interact with the AI Mentor, Then the plan is adjusted accordingly.
-
-**Prerequisites:** Story 2.2 (Personalized Career Development Plan Generation).
-
-**Technical Notes:** Implement a UI for progress tracking. Develop logic for plan adjustment based on user input and progress.
+### Story 2.2: Export All Generated Content
+*   **User Story:** As a user, I want to export all the generated content (gap analysis, suggestions, cover letter) into a single file, so that I can easily use it in my application process.
+*   **Acceptance Criteria:**
+    *   Given the analysis and content generation is complete, When I click an "Export" button, Then a Markdown file is downloaded to my computer.
+    *   And the file contains the Gap Analysis, CV Improvement Suggestions, and the generated Cover Letter, formatted with clear headings.
+*   **Prerequisites:** Story 1.4, Story 2.1
+*   **Technical Notes:** Implement a function that concatenates the content from the various feedback cards into a single string with Markdown formatting and triggers a file download in the browser.
 
 ---
 
 ## FR Coverage Matrix
 
-- FR1: User registration (email/password) → Epic 1, Story 1.1
-- FR2: User login/logout → Epic 1, Story 1.2
-- FR3: Storage of user's CV → Epic 1, Story 1.3
-- FR4: Editing and updating of CV → Epic 1, Story 1.3
-- FR5: Conversational interface for career goal setting → Epic 2, Story 2.1
-- FR6: Generation of personalized career development plans → Epic 2, Story 2.2
-- FR7: Progress tracking and plan adjustments → Epic 2, Story 2.3
-- FR8: A database to store user accounts, profiles, and career plans → Epic 1 (for user/profile), Epic 2 (for career plans)
+This matrix validates that every Functional Requirement (FR) from the PRD is covered by one or more stories.
+
+*   **FR1: Paste CV Content** → Epic 1, Story 1.3
+*   **FR2: Paste Job Description** → Epic 1, Story 1.3
+*   **FR3: Generate Tailored Cover Letter** → Epic 2, Story 2.1
+*   **FR4: View Gap Analysis** → Epic 1, Story 1.4
+*   **FR5: Receive CV Improvement Suggestions** → Epic 1, Story 1.4
+*   **FR6: Export Generated Content** → Epic 2, Story 2.2
 
 ---
 
 ## Summary
 
-**✅ Epic Breakdown Complete**
-
-**Created:** epics.md with epic and story breakdown
-
-**FR Coverage:** All functional requirements from PRD mapped to stories
-
-**Context Incorporated:**
-
-- ✅ PRD requirements
-  **Next:** Run UX Design (if UI) or Architecture workflow
-  **Note:** Epics will be enhanced with additional context later
+The epic and story breakdown for the ibe160 MVP is now complete. The requirements from the PRD have been decomposed into two value-driven epics, which are further broken down into six implementable user stories. All functional requirements have been mapped, and the structure provides a clear path for incremental development.
 
 ---
 

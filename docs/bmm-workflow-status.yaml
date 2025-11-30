@@ -25,12 +25,12 @@ workflow_status:
   brainstorm-project: "docs/bmm-brainstorming-session-2025-11-25.md"
   research: skipped
   product-brief: skipped
-  prd: required
-  validate-prd: optional
-  create-design: conditional
-  create-architecture: required
-  create-epics-and-stories: required
-  test-design: recommended
-  validate-architecture: optional
-  implementation-readiness: required
-  sprint-planning: required
+  prd: docs/prd.md
+  validate-prd: skipped
+  create-design: docs/ux-design-specification.md
+  create-architecture: docs/architecture.md
+  create-epics-and-stories: docs/epics.md
+  test-design: tests/README.md
+  validate-architecture: skipped
+  implementation-readiness: docs/implementation-readiness-report-2025-11-30.md
+  sprint-planning: docs/sprint-artifacts/sprint-status.yaml

@@ -1,0 +1,52 @@
+# Sprint Status Template
+# This is an EXAMPLE showing the expected format
+# The actual file will be generated with all epics/stories from your epic files
+
+# generated: 2025-11-30
+# project: ibe160
+# project_key: # project_key - can be added here if needed for external tracking system
+# tracking_system: file-system
+# story_location: docs/sprint-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic exists in epic file but not contexted
+#   - contexted: Next epic tech context created by *epic-tech-context (required)
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - drafted: Story file created in stories folder by *create-story
+#   - ready-for-dev: Draft approved and story context created by *story-ready
+#   - in-progress: Developer actively working on implementation by *dev-story
+#   - review: Implementation complete, ready for review by *code-review
+#   - done: Story completed by *story-done
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - completed: Retrospective has been done by *retrospective
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epics should be 'contexted' before stories can be 'drafted'
+# - SM typically drafts next story ONLY after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', dev reviews, then Dev moves to 'done'
+
+generated: 2025-11-30
+project: ibe160
+project_key:
+tracking_system: file-system
+story_location: docs/sprint-artifacts
+
+development_status:
+  epic-1: backlog
+  1-1-foundational-web-application-setup: backlog
+  1-2-implement-two-panel-ux-layout: backlog
+  1-3-cv-job-description-input: backlog
+  1-4-implement-core-analysis-logic-gap-analysis-suggestions: backlog
+  epic-1-retrospective: optional
+
+  epic-2: backlog
+  2-1-generate-tailored-cover-letter: backlog
+  2-2-export-all-generated-content: backlog
+  epic-2-retrospective: optional
