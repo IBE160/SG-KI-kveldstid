@@ -1,0 +1,29 @@
+Here is some example content for .geminiignore. Add patterns for files and directories that Gemini should ignore.
+
+# Ignore build artifacts
+/build
+/dist
+/out
+/target
+
+# Ignore dependency directories
+/node_modules
+/vendor
+
+# Ignore IDE-specific files
+.idea
+.vscode/*
+*.swp
+*.bak
+
+# Ignore logs and temporary files
+/logs
+*.log
+*.tmp
+
+# Ignore sensitive files
+.env
+.DS_Store
+
+# Ignore Gemini's own files
+.gemini/

@@ -1,0 +1,9 @@
+fr_inventory:
+- FR1: User registration (email/password)
+- FR2: User login/logout
+- FR3: Storage of user's CV
+- FR4: Editing and updating of CV
+- FR5: Conversational interface for career goal setting
+- FR6: Generation of personalized career development plans
+- FR7: Progress tracking and plan adjustments
+- FR8: A database to store user accounts, profiles, and career plans

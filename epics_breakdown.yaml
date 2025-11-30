@@ -1,0 +1,15 @@
+epics_summary: |
+  **Epic 1: User Authentication & Profile Management**
+  Goal: Enable users to securely manage their identity and personal data within the application.
+
+  **Epic 2: AI Mentor & Planning Engine**
+  Goal: Provide users with personalized career guidance and planning capabilities.
+fr_coverage_map: |
+  - FR1: User registration (email/password) → Epic 1
+  - FR2: User login/logout → Epic 1
+  - FR3: Storage of user's CV → Epic 1
+  - FR4: Editing and updating of CV → Epic 1
+  - FR5: Conversational interface for career goal setting → Epic 2
+  - FR6: Generation of personalized career development plans → Epic 2
+  - FR7: Progress tracking and plan adjustments → Epic 2
+  - FR8: A database to store user accounts, profiles, and career plans → Epic 1, Epic 2

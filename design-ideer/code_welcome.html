@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Application Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "primary": {
+                        "DEFAULT": "#6366f1", // indigo-500
+                        "hover": "#4f46e5", // indigo-600
+                    },
+                    "background-light": "#f8fafc",
+                    "background-dark": "#020617", // slate-950
+                    "slate": {
+                        50: '#f8fafc',
+                        100: '#f1f5f9',
+                        200: '#e2e8f0',
+                        300: '#cbd5e1',
+                        400: '#94a3b8',
+                        500: '#64748b',
+                        600: '#475569',
+                        700: '#334155',
+                        800: '#1e293b',
+                        900: '#0f172a',
+                        950: '#020617',
+                    }
+                },
+                fontFamily: {
+                    "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: {
+                    "DEFAULT": "0.5rem",
+                    "lg": "0.75rem",
+                    "xl": "1rem",
+                    "full": "9999px"
+                },
+            },
+        },
+    }
+    </script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        font-size: 24px;
+    }
+    .material-symbols-outlined.fill {
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .gradient-bg {
+        background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.1) 0px, transparent 50%), radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.1) 0px, transparent 50%), radial-gradient(at 52% 99%, hsla(355, 98%, 72%, 0.1) 0px, transparent 50%), radial-gradient(at 10% 29%, hsla(256, 96%, 68%, 0.1) 0px, transparent 50%), radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 0.1) 0px, transparent 50%), radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 0.1) 0px, transparent 50%), radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 0.1) 0px, transparent 50%);
+    }
+    .light-gradient-bg {
+        background-image: radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 0.05) 0px, transparent 50%), radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 0.05) 0px, transparent 50%), radial-gradient(at 52% 99%, hsla(355, 98%, 72%, 0.05) 0px, transparent 50%);
+    }
+    </style>
+</head>
+<body class="bg-slate-50 font-display text-slate-700">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-slate-50 overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<header class="flex items-center justify-between whitespace-nowrap px-4 sm:px-10 py-4 sticky top-0 bg-slate-50/80 backdrop-blur-lg z-50 border-b border-slate-200">
+<div class="flex items-center gap-3 text-slate-900">
+<div class="size-7 text-primary">
+<svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.75 2.75a.75.75 0 0 0-1.5 0v5.5h-5.5a.75.75 0 0 0 0 1.5h5.5v5.5a.75.75 0 0 0 1.5 0v-5.5h5.5a.75.75 0 0 0 0-1.5h-5.5v-5.5Z"></path>
+<path d="M4.242 8.493a.75.75 0 0 0-1.06 0l-1.93 1.93a.75.75 0 0 0 0 1.06l7.477 7.476a.75.75 0 0 0 1.06 0l7.476-7.476a.75.75 0 0 0 0-1.06l-1.93-1.93a.75.75 0 0 0-1.06 0l-5.694 5.694-5.693-5.694Z"></path>
+</svg>
+</div>
+<h2 class="text-slate-900 text-lg font-bold leading-tight tracking-[-0.015em]">JobTailor AI</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-6">
+<div class="flex items-center gap-6">
+<a class="text-slate-600 text-sm font-medium leading-normal hover:text-slate-900 transition-colors" href="#">Features</a>
+<a class="text-slate-600 text-sm font-medium leading-normal hover:text-slate-900 transition-colors" href="#">How It Works</a>
+<a class="text-slate-600 text-sm font-medium leading-normal hover:text-slate-900 transition-colors" href="#">Pricing</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-slate-900 text-slate-50 text-sm font-bold leading-normal tracking-[-0.01em] hover:bg-slate-800 transition-colors">
+<span class="truncate">Log In</span>
+</button>
+</div>
+<div class="md:hidden">
+<button class="text-slate-900">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col gap-12 sm:gap-16 md:gap-20">
+<section class="@container py-12 sm:py-20 text-center">
+<div class="flex flex-col gap-8 items-center px-4">
+<div class="flex flex-col gap-4 max-w-3xl">
+<h1 class="text-slate-900 text-5xl font-extrabold tracking-tight sm:text-6xl md:text-8xl">
+                                            Land Your Dream Job, Faster.
+                                        </h1>
+<h2 class="text-slate-600 text-xl sm:text-2xl leading-relaxed">
+                                            Our AI assistant helps you tailor your resume and cover letter for any job description, beating the application tracking systems and getting you noticed.
+                                        </h2>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<button class="flex w-full sm:w-auto min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[-0.01em] hover:bg-primary-hover transition-colors shadow-lg shadow-indigo-500/30">
+<span class="truncate">Start Tailoring Now</span>
+</button>
+<button class="flex w-full sm:w-auto min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-white text-slate-700 text-base font-bold leading-normal tracking-[-0.01em] hover:bg-slate-100 transition-colors border border-slate-300">
+<span class="truncate">How it Works</span>
+</button>
+</div>
+<div class="w-full max-w-5xl mt-8">
+<img alt="A professional and modern abstract image with flowing lines and shapes in light colors, conveying the concept of AI-driven career assistance." class="aspect-video w-full rounded-xl border border-slate-200 bg-white object-cover shadow-xl shadow-slate-200/80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLFsz9xJWUntoidbqimeIQUL-f2pfeiPAlm9GCbbh2ukpgym27MoJr049e8EfQArUJq5hAZYOTTZkUsy-g7KobBBXuPYq6RZyRerzu-qCLVJZPH3XePfTq6jCamfkrsPKHN5h6p8LqnJUashz0SEwsE2NKum2j483QPvlMXzXomu2tqpD4GtWFZIZWFnQ61UYidVBwA-JfaI6q2o0dcAscELDOZaE91sRVzJHLoWdtanNVmOztTa9MoX52ThVBicgrefRVwHWnEsA"/>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-10 px-4 py-10 @container">
+<div class="flex flex-col gap-4 text-center items-center">
+<h2 class="text-slate-900 tracking-tight text-3xl font-bold sm:text-4xl max-w-[720px]">
+                                    Why Students Choose JobTailor AI
+                                </h2>
+<p class="text-slate-600 text-lg font-normal leading-relaxed max-w-[720px]">Discover how our AI-powered tool gives you the edge in your job search.</p>
+</div>
+<div class="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6 p-0">
+<div class="flex flex-1 gap-6 rounded-xl border border-slate-200 bg-white/80 p-6 flex-col">
+<div class="text-primary"><span class="material-symbols-outlined !text-3xl">verified_user</span></div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 text-lg font-semibold leading-tight">Beat the ATS</h3>
+<p class="text-slate-600 text-sm font-normal leading-relaxed">Optimize your application to get past automated filters and into human hands.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-6 rounded-xl border border-slate-200 bg-white/80 p-6 flex-col">
+<div class="text-primary"><span class="material-symbols-outlined !text-3xl">schedule</span></div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 text-lg font-semibold leading-tight">Save Time</h3>
+<p class="text-slate-600 text-sm font-normal leading-relaxed">Stop wasting hours manually tailoring your resume. Get it done in minutes.</p>
+</div>
+</div>
+<div class="flex flex-1 gap-6 rounded-xl border border-slate-200 bg-white/80 p-6 flex-col">
+<div class="text-primary"><span class="material-symbols-outlined !text-3xl">trending_up</span></div>
+<div class="flex flex-col gap-1">
+<h3 class="text-slate-900 text-lg font-semibold leading-tight">Boost Confidence</h3>
+<p class="text-slate-600 text-sm font-normal leading-relaxed">Apply for jobs with the confidence that your application is perfectly optimized.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-10 px-4 py-10 @container">
+<div class="flex flex-col gap-4 text-center items-center">
+<h2 class="text-slate-900 tracking-tight text-3xl font-bold sm:text-4xl">How It Works</h2>
+<p class="text-slate-600 text-lg font-normal leading-relaxed max-w-[720px]">Get started in three simple steps.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-12 items-center">
+<div class="w-full lg:w-1/2 flex justify-center">
+<img alt="A gif or video showing the AI application assistant in use." class="rounded-xl object-cover max-w-md w-full aspect-video border border-slate-200 bg-slate-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtSLg2wSZAe0YQOxqB991J_0h2yvWu52DnbxA4PuXelvkG8fkZXyiWGrfKrIBAUMGB2xziFQ8l9rRTAsXxq1RNCuuO3800IOvzMafV3Pm-jFWqWoMG86TkOfaBzG6VpsX-qEmTle0mekM4LLbvzUKJKSehZ469HJ4pzD1BmW3cdyhTPuC-oz5g6pIO70sQAIvpOBh__BFtk-WbN2WhZN0syNwAMQEqwPS_FYrGpRlu8KdH4B2Qgk2Or8tzHyI6AIvpafpGrYfy_oA"/>
+</div>
+<div class="w-full lg:w-1/2">
+<div class="grid grid-cols-[40px_1fr] gap-x-6">
+<div class="flex flex-col items-center gap-1.5 pt-3">
+<div class="text-primary bg-primary/10 rounded-full p-2"><span class="material-symbols-outlined !text-2xl">upload_file</span></div>
+<div class="w-px bg-slate-300 h-4 grow"></div>
+</div>
+<div class="flex flex-1 flex-col pt-3 pb-8">
+<h3 class="text-slate-900 text-lg font-semibold leading-normal">1. Upload Your Resume</h3>
+<p class="text-slate-600 text-sm font-normal leading-relaxed">Start by uploading your current resume in PDF or DOCX format.</p>
+</div>
+<div class="flex flex-col items-center gap-1.5">
+<div class="w-px bg-slate-300 h-4"></div>
+<div class="text-primary bg-primary/10 rounded-full p-2"><span class="material-symbols-outlined !text-2xl">content_paste</span></div>
+<div class="w-px bg-slate-300 h-4 grow"></div>
+</div>
+<div class="flex flex-1 flex-col pt-3 pb-8">
+<h3 class="text-slate-900 text-lg font-semibold leading-normal">2. Paste Job Description</h3>
+<p class="text-slate-600 text-sm font-normal leading-relaxed">Copy the description of the job you are applying for and paste it into the text field.</p>
+</div>
+<div class="flex flex-col items-center gap-1.5 pb-3">
+<div class="w-px bg-slate-300 h-4"></div>
+<div class="text-primary bg-primary/10 rounded-full p-2"><span class="material-symbols-outlined !text-2xl">auto_awesome</span></div>
+</div>
+<div class="flex flex-1 flex-col pt-3 pb-8">
+<h3 class="text-slate-900 text-lg font-semibold leading-normal">3. Get AI Suggestions</h3>
+<p class="text-slate-600 text-sm font-normal leading-relaxed">Receive instant, actionable feedback to tailor your resume for the specific role.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-10 px-4 py-10">
+<div class="flex flex-col gap-4 text-center items-center">
+<h2 class="text-slate-900 tracking-tight text-3xl font-bold sm:text-4xl max-w-[720px]">Loved by Students Like You</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white/80 p-6">
+<div class="flex items-center gap-4">
+<img alt="Photo of Sarah L." class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9xpBXrNvV9iS3tCULsgNwV08gwj4Bvlzow0BWV0QxpqngDCMlOrc5EivmkxnL_C2x4vw6dZr8R4rvSuTbENLoCDQiSaXtSeRK68ths1_CGNEy4CITYeEre6WrblaxOaJ3ZPYZAp2kpU409Q3eX1Yo2ZsdqdloNLvOxU5Lb6KW5GLMr7Dcjgh4fcF3r9M8a2f8PYVLDuZDhe8xTi8NbSUOK5H_pfPvHDoxgDWT66J1_ietYZZeaHOpBupMDKFa3dTiQLJGo2j9O1g"/>
+<div class="flex flex-col">
+<p class="text-slate-900 font-semibold">Sarah L.</p>
+<p class="text-slate-600 text-sm">Marketing Intern</p>
+</div>
+</div>
+<p class="text-slate-700 text-sm leading-relaxed">"This tool is a game-changer! I was struggling to get interviews, but after using the AI assistant, I got three offers in two weeks. It's so easy to use."</p>
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white/80 p-6">
+<div class="flex items-center gap-4">
+<img alt="Photo of David C." class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwswQrAy6OTD4ITBgHOSNnOjG2Bi3jMrOmXFa4fhresUyFwMpJzaUQFQGEJ5Cj-HRcS_dsHNqaIfvJc-_C7ex1oQ_mt_uoqdrKGecrzz7UFCUwGchMSN3YaVmYqHj3pylF5U9QZ6m7W-WH9OlVXkWn-P8IQ3Tkjjn4ArG2e1tSAYj0AI8dL1gzz6B-p48AOlWBSDyabp9sHDjRU7E3DcGd7UGegtMaA5SHdAm3aeHdAbdt1yxPUTk7rKAh0wA23FJg9Gxpzf_Zhak"/>
+<div class="flex flex-col">
+<p class="text-slate-900 font-semibold">David C.</p>
+<p class="text-slate-600 text-sm">Software Engineering Student</p>
+</div>
+</div>
+<p class="text-slate-700 text-sm leading-relaxed">"The ATS score was a lifesaver. I had no idea my resume was being automatically rejected. After a few tweaks suggested by the AI, I started getting replies."</p>
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+</div>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white/80 p-6">
+<div class="flex items-center gap-4">
+<img alt="Photo of Emily R." class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0MJQ_Z_R2VroNsWN7OTcxuya-7hQBarorUzMIYjLmEOc2tiWcitnF6UpjTVomPlv9kl-JOfIfSeIGsQRCj7nfSpnsmv-vAgsx97aExXqfc2W98YNHkQhGzOOxsw5HnbpNKejHPdMsuvSV-8AZNVj-j4KQlaVMTUi1mXuPj5XYUyO83PzhcKsp5_zP_jYe3sCIMSeDvRE_dU7LifBCZawVuNwm3hBZsNRkIONNvFQu9upeDnyHrJ8-hvfLBPBgvdQOAMHNCstU11Y"/>
+<div class="flex flex-col">
+<p class="text-slate-900 font-semibold">Emily R.</p>
+<p class="text-slate-600 text-sm">Recent Graduate</p>
+</div>
+</div>
+<p class="text-slate-700 text-sm leading-relaxed">"Saved me so much time. Instead of spending hours rewriting my resume for each job, I could do it in minutes. Highly recommend for any student on the job hunt."</p>
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+<span class="material-symbols-outlined fill !text-lg">star</span>
+</div>
+</div>
+</div>
+</section>
+<section class="flex flex-col gap-6 px-4 py-16 items-center text-center bg-white/80 rounded-xl border border-slate-200">
+<h2 class="text-slate-900 text-3xl font-bold tracking-tight max-w-[600px]">Start Building Your Winning Application Today</h2>
+<p class="text-slate-600 text-lg leading-relaxed max-w-[600px]">Take the guesswork out of job applications. Get started for free and land the interview you deserve.</p>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[-0.01em] hover:bg-primary-hover transition-colors shadow-lg shadow-indigo-500/30">
+<span class="truncate">Start For Free</span>
+</button>
+</section>
+</main>
+<footer class="flex flex-col sm:flex-row items-center justify-between gap-6 py-10 mt-10 border-t border-slate-200 px-4">
+<div class="text-sm text-slate-500">© 2024 JobTailor AI. All rights reserved.</div>
+<div class="flex items-center gap-6">
+<a class="text-sm text-slate-600 hover:text-slate-900 transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm text-slate-600 hover:text-slate-900 transition-colors" href="#">Contact Us</a>
+</div>
+</footer>
+</div>
+</div>
+</div>
+</div>
+</body></html>

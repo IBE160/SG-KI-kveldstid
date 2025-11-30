@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Job Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3b82f6", // Blue for primary actions
+              background: "#f8f9fa", // Light gray background
+              surface: "#ffffff", // White for cards/surfaces
+              "on-surface": "#111827", // Dark text color
+              "on-surface-secondary": "#6b7280", // Lighter text for subheadings, etc.
+              border: "#e5e7eb", // Light border color
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+</head>
+<body class="font-display bg-background">
+<div class="relative flex h-auto min-h-screen w-full flex-col bg-background group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+<div class="layout-content-container flex flex-col w-full max-w-5xl flex-1">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border px-4 md:px-10 py-3">
+<div class="flex items-center gap-4 text-on-surface">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z"></path>
+</svg>
+</div>
+<h2 class="text-on-surface text-lg font-bold leading-tight tracking-[-0.015em]">AI Job Assistant</h2>
+</div>
+<div class="hidden md:flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-on-surface text-sm font-medium leading-normal" href="#">Dashboard</a>
+<a class="text-on-surface-secondary text-sm font-medium leading-normal" href="#">History</a>
+<a class="text-on-surface-secondary text-sm font-medium leading-normal" href="#">Account</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/10 text-primary text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Upgrade</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAfkEEXi2PeHW7MGe8u67AN5GUPem-fRyxnrmiREi6s1IgzvxPYhubdRoTi6bJf_Z5x2WIrKRW3_jQ0sJVuOiGpHQ6rp9A2IkHG22SnqJ2YLUlc4K5F62hs97mDZJjpMd21tWC6CW3D-H904VCPxzP1ySO-pqijHIx8ZTu2SPS0pCxoE0tsB46YBzUA22cXQoXVuvfAyN1PyIrQ6QA6AiCFq3M-6zB30ldo-oFgSlON3c4nSedUX1PvAVwvrxamSIgca5ekuE_Meeg");'></div>
+</div>
+</header>
+<main class="flex flex-col gap-10 mt-10">
+<div class="flex flex-col items-center gap-4 text-center">
+<h1 class="text-on-surface text-4xl md:text-5xl font-extrabold leading-tight tracking-[-0.033em]">Tailor Your Application in Seconds</h1>
+<p class="text-on-surface-secondary text-lg font-normal leading-normal max-w-2xl">Our AI will analyze your CV against the job description to suggest improvements and highlight key skills.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+<div class="flex flex-col gap-6 bg-surface p-6 rounded-2xl border border-border shadow-sm">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-on-surface text-xl font-bold leading-tight tracking-[-0.015em]">Step 1: Your CV</h2>
+<p class="text-on-surface-secondary text-base">Upload your resume to get started</p>
+</div>
+</div>
+<div class="flex flex-col items-center gap-4 rounded-xl border-2 border-dashed border-border px-6 py-10 text-center bg-background">
+<div class="flex items-center justify-center size-12 rounded-full bg-gray-200">
+<span class="material-symbols-outlined text-2xl text-on-surface-secondary">upload_file</span>
+</div>
+<div class="flex flex-col gap-1">
+<p class="text-on-surface text-lg font-semibold leading-tight">Drag &amp; drop or click to upload</p>
+<p class="text-on-surface-secondary text-sm font-normal">PDF, DOCX, TXT (max. 5MB)</p>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-gray-200 text-on-surface text-sm font-semibold leading-normal mt-2 hover:bg-gray-300 transition-colors">
+<span class="truncate">Choose file</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-6 bg-surface p-6 rounded-2xl border border-border shadow-sm">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center size-10 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-on-surface text-xl font-bold leading-tight tracking-[-0.015em]">Step 2: Job Ad</h2>
+<p class="text-on-surface-secondary text-base">Paste the job description below</p>
+</div>
+</div>
+<div class="relative w-full">
+<textarea class="w-full h-56 p-4 rounded-xl border border-border bg-background text-on-surface text-base placeholder:text-on-surface-secondary focus:ring-2 focus:ring-primary focus:border-transparent resize-y" placeholder="Paste the full job description here..."></textarea>
+<p class="absolute bottom-3 right-4 text-sm text-on-surface-secondary">0 / 5000 words</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 pt-4 items-center">
+<button class="flex w-full max-w-sm cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] transition-opacity duration-300 disabled:opacity-40 disabled:cursor-not-allowed" disabled="">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="truncate">Generate Tailored Application</span>
+</button>
+<p class="text-center text-sm text-on-surface-secondary">Please upload a CV and paste a job description to enable.</p>
+</div>
+</main>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

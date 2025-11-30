@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Job Application Analysis</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@300;400;500;700&amp;FILL=0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3b82f6",
+                        "background-light": "#f8fafc",
+                        "surface-light": "#ffffff",
+                        "border-light": "#e2e8f0",
+                        "text-primary": "#0f172a",
+                        "text-secondary": "#64748b",
+                        "text-tertiary": "#94a3b8",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<div class="flex h-full min-h-screen w-full">
+<aside class="flex w-64 flex-col border-r border-border-light bg-surface-light p-4 text-text-primary">
+<div class="flex h-full flex-col justify-between">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 p-2">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="User avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKTwmLop3e5c2qeoIqWiTo4XDY0eOuBaUsHk9ImHZ2gA3ZtJSozkn1kq9j9VTd_fvfRR12zc951cPxEQTGHX-YuWynEywlIHdOKC0c7OrymfUKF288O3iQxQT4Ift6gRWtKn_oaGyeEPVKL9G8vPw-P6r4E0jy7cPn1XZRXVo_8dxzhDSVSqM1uQOyZOygJf7sZWnQo3jMNMwBK_4cbPiRRg21xBkGwKhReOTCB4wO8yEFK_4-s5to3Y0DzYM-J0gHp-qYH2dlyWA");'></div>
+<div class="flex flex-col">
+<h1 class="text-text-primary text-base font-semibold leading-normal">Jessica Miller</h1>
+<p class="text-text-secondary text-sm font-normal leading-normal">j.miller@university.com</p>
+</div>
+</div>
+<nav class="mt-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 rounded-lg bg-blue-50 px-3 py-2 text-primary" href="#">
+<span class="material-symbols-outlined !font-light text-xl">space_dashboard</span>
+<p class="text-sm font-medium leading-normal">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-secondary hover:bg-slate-100 hover:text-text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined !font-light text-xl">article</span>
+<p class="text-sm font-medium leading-normal">Cover Letter</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-secondary hover:bg-slate-100 hover:text-text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined !font-light text-xl">edit_document</span>
+<p class="text-sm font-medium leading-normal">CV Improvements</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-secondary hover:bg-slate-100 hover:text-text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined !font-light text-xl">rule</span>
+<p class="text-sm font-medium leading-normal">Gap Analysis</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-secondary hover:bg-slate-100 hover:text-text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined !font-light text-xl">checklist</span>
+<p class="text-sm font-medium leading-normal">ATS Tips</p>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-700 transition-colors">
+<span class="truncate">New Analysis</span>
+</button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-secondary hover:bg-slate-100 hover:text-text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined !font-light text-xl">settings</span>
+<p class="text-sm font-medium leading-normal">Settings</p>
+</a>
+<a class="flex items-center gap-3 rounded-lg px-3 py-2 text-text-secondary hover:bg-slate-100 hover:text-text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined !font-light text-xl">logout</span>
+<p class="text-sm font-medium leading-normal">Logout</p>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto p-8">
+<div class="mx-auto max-w-5xl">
+<header class="flex flex-wrap items-center justify-between gap-4 border-b border-border-light pb-6">
+<div class="flex min-w-72 flex-col gap-1">
+<p class="text-text-primary text-3xl font-bold leading-tight tracking-tight">Application Analysis</p>
+<p class="text-text-secondary text-base font-normal leading-normal">Software Engineer at Innovate Inc.</p>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-lg h-10 px-4 bg-surface-light text-text-secondary border border-border-light text-sm font-medium leading-normal hover:bg-slate-50 hover:border-slate-300 transition-colors">
+<span class="material-symbols-outlined text-lg">download</span>
+<span class="truncate">Download Report</span>
+</button>
+</header>
+<section class="mt-8">
+<h2 class="text-text-primary text-xl font-semibold leading-tight tracking-[-0.015em] mb-4">Gap Analysis</h2>
+<div class="grid grid-cols-3 gap-6">
+<div class="flex flex-col gap-2 rounded-xl p-6 border border-border-light bg-surface-light">
+<div class="flex items-center justify-between">
+<p class="text-text-secondary text-sm font-medium leading-normal">Matched Skills</p>
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+</div>
+<p class="text-text-primary tracking-tight text-5xl font-bold leading-tight">6</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 border border-border-light bg-surface-light">
+<div class="flex items-center justify-between">
+<p class="text-text-secondary text-sm font-medium leading-normal">Partial Matches</p>
+<span class="material-symbols-outlined text-yellow-500">adjust</span>
+</div>
+<p class="text-text-primary tracking-tight text-5xl font-bold leading-tight">2</p>
+</div>
+<div class="flex flex-col gap-2 rounded-xl p-6 border border-border-light bg-surface-light">
+<div class="flex items-center justify-between">
+<p class="text-text-secondary text-sm font-medium leading-normal">Missing Skills</p>
+<span class="material-symbols-outlined text-red-500">cancel</span>
+</div>
+<p class="text-text-primary tracking-tight text-5xl font-bold leading-tight">1</p>
+</div>
+</div>
+<div class="mt-4">
+<div class="w-full h-2.5 bg-surface-light rounded-full overflow-hidden flex border border-border-light">
+<div class="bg-green-500" style="width: 66.66%"></div>
+<div class="bg-yellow-500" style="width: 22.22%"></div>
+<div class="bg-red-500" style="width: 11.12%"></div>
+</div>
+</div>
+</section>
+<div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+<div class="flex flex-col gap-8">
+<section>
+<h2 class="text-text-primary text-xl font-semibold leading-tight tracking-[-0.015em] mb-4">Tailored Cover Letter</h2>
+<div class="rounded-xl border border-border-light bg-surface-light p-6">
+<div class="text-text-secondary text-base font-normal leading-relaxed space-y-4 max-h-48 overflow-y-auto pr-2">
+<p>Dear Hiring Manager,</p>
+<p>I am writing to express my keen interest in the Software Engineer position at Innovate Inc., as advertised on LinkedIn. With a strong foundation in full-stack development and a passion for creating elegant, user-centric solutions, I am confident that my skills in React, Node.js, and Python align perfectly with the requirements of this role.</p>
+<p>My experience in developing scalable web applications and my proven ability to collaborate within agile teams make me a strong candidate to contribute to your projects. I am particularly drawn to Innovate Inc.'s commitment to disruptive technologies and look forward to the opportunity to bring my problem-solving skills to your dynamic team.</p>
+</div>
+<div class="mt-6 flex flex-wrap gap-3">
+<button class="flex items-center justify-center gap-2 rounded-lg h-9 px-4 text-text-secondary text-sm font-medium bg-slate-50 border border-border-light hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-base">content_copy</span>Copy Text</button>
+<button class="flex items-center justify-center gap-2 rounded-lg h-9 px-4 text-text-secondary text-sm font-medium bg-slate-50 border border-border-light hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-base">download</span>Download</button>
+</div>
+</div>
+</section>
+<section>
+<h2 class="text-text-primary text-xl font-semibold leading-tight tracking-[-0.015em] mb-4">ATS Optimization Checklist</h2>
+<ul class="space-y-3">
+<li class="flex items-center gap-4 rounded-xl border border-border-light bg-surface-light p-4">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+<span class="text-text-primary text-base">Use standard section headings like "Work Experience".</span>
+</li>
+<li class="flex items-center gap-4 rounded-xl border border-border-light bg-surface-light p-4">
+<span class="material-symbols-outlined text-green-500">check_circle</span>
+<span class="text-text-primary text-base">Include relevant keywords from the job description.</span>
+</li>
+<li class="flex items-center gap-4 rounded-xl border border-yellow-300 bg-yellow-50 p-4">
+<span class="material-symbols-outlined text-yellow-500">warning</span>
+<span class="text-text-primary text-base">Avoid using tables or columns that can confuse parsers.</span>
+</li>
+</ul>
+</section>
+</div>
+<div class="flex flex-col gap-8">
+<section>
+<h2 class="text-text-primary text-xl font-semibold leading-tight tracking-[-0.015em] mb-4">CV Bullet Point Suggestions</h2>
+<div class="space-y-4">
+<div class="rounded-xl border border-border-light bg-surface-light p-6">
+<p class="text-sm font-medium text-text-tertiary mb-2">Original</p>
+<p class="text-text-secondary italic text-base">"Worked on a team to build a web app."</p>
+<div class="my-4 h-px bg-border-light"></div>
+<p class="text-sm font-medium text-green-600 mb-2">Suggestion</p>
+<p class="text-text-primary font-medium text-base leading-relaxed">"Collaborated in an agile team of 4 to develop a full-stack web application using <span class="font-semibold text-primary">React</span> and <span class="font-semibold text-primary">Node.js</span>, resulting in a 15% increase in user engagement."</p>
+</div>
+<div class="rounded-xl border border-border-light bg-surface-light p-6">
+<p class="text-sm font-medium text-text-tertiary mb-2">Original</p>
+<p class="text-text-secondary italic text-base">"Responsible for bug fixes."</p>
+<div class="my-4 h-px bg-border-light"></div>
+<p class="text-sm font-medium text-green-600 mb-2">Suggestion</p>
+<p class="text-text-primary font-medium text-base leading-relaxed">"Identified and resolved over 50 critical bugs in a production environment, improving application stability by 25% and reducing customer support tickets."</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>
