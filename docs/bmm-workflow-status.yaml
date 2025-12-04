@@ -35,7 +35,7 @@ workflow_items:
     name: "Planning"
     workflows:
       - id: "prd"
-        status: "completed"
+        status: "docs/prd.md"
       - id: "validate-prd"
         status: "completed"
       - id: "create-design"
