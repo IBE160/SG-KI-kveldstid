@@ -50,7 +50,7 @@ workflow_items:
       - id: "create-epics-and-stories"
         status: "docs/epics.md"
       - id: "test-design"
-        status: "recommended"
+        status: "docs/test-design-system.md"
       - id: "validate-architecture"
         status: "optional"
       - id: "implementation-readiness"
