@@ -48,7 +48,7 @@ workflow_items:
       - id: "create-architecture"
         status: "docs/architecture.md"
       - id: "create-epics-and-stories"
-        status: "required"
+        status: "docs/epics.md"
       - id: "test-design"
         status: "recommended"
       - id: "validate-architecture"
