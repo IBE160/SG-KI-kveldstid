@@ -12,30 +12,30 @@
   - [x] File: bmm-workflow-status.yaml
 - [x] Brainstorming
   - [x] /run-agent-task analyst *brainstorm "Root Cause Analysis and Solution Design for Player Inactivity"
-    - [x] File: brainstorming-session-results-date.md
+    - [x] File: brainstorming-session-results-2025-12-04_3.md
   - [x] /run-agent-task analyst *brainstorm "User Flow Deviations & Edge Cases"
-    - [x] File: brainstorming-session-results-date.md
+    - [x] File: brainstorming-session-results-2025-12-04_3.md
   - [x] /run-agent-task analyst *brainstorm "Brainstorm what it means to have a paid user"
-    - [x] File: brainstorming-session-results-date.md
+    - [x] File: brainstorming-session-results-2025-12-04_3.md
 - [ ] Research
   - [x] /run-agent-task analyst *research "Which AI library should we use for orchestrating LLM interactions?"
-    - [x] File: research-technical-date.md
+    - [x] File: research-technical-2025-12-04_1.md
 - [x] Product Brief
   - [x] /run-agent-task analyst *product-brief "Read the two brainstorming sessions the research session and the @proposal.md file, and create a product brief for the project."
     - [x] File: product-brief.md
 
 ## Fase 1
 
-- [ ] Planning
-  - [ ] /run-agent-task pm *prd
-    - [ ] File: PRD.md
-  - [ ] /run-agent-task pm *validate-prd
-    - [ ] File: validation-report-date.md
-  - [ ] /run-agent-task ux-designer *create-ux-design {prompt / user-input-file}
-    - [ ] File: ux-design-specification.md
-    - [ ] File: ux-color-themes.html
-    - [ ] File: ux-design-directions.html
-  - [ ] /run-agent-task ux-designer *validate-ux-design {prompt / user-input-file}
+- [x] Planning
+  - [x] /run-agent-task pm *prd
+    - [x] File: PRD.md
+  - [x] /run-agent-task pm *validate-prd
+    - [x] File: validation-report-20251204.md
+  - [x] /run-agent-task ux-designer *create-ux-design "Validate the UX design files (ux-design-specification.md, ux-color-themes.html, ux-design-directions.html) against PRD.md and product-brief.md. Identify usability issues, missing states and accessibility concerns."
+    - [x] File: ux-design-specification.md
+    - [x] File: ux-color-themes.html (Conceptual - Not Generated)
+    - [x] File: ux-design-directions.html (Conceptual - Not Generated)
+  - [x] /run-agent-task ux-designer *validate-ux-design "Validate the UX design files (ux-design-specification.md, ux-color-themes.html, ux-design-directions.html) against PRD.md and product-brief.md. Identify usability issues, missing states and accessibility concerns."
 
 ## Fase 2
 

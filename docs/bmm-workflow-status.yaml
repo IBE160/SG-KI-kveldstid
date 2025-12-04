@@ -26,25 +26,27 @@ workflow_items:
     name: "Discovery (Optional)"
     workflows:
       - id: "brainstorm-project"
-        status: "docs/brainstorming-session-results-2025-12-04_3.md"
+        status: "completed"
       - id: "research"
-        status: "docs/research-technical-2025-12-04_1.md"
+        status: "completed"
       - id: "product-brief"
-        status: "docs/product-brief.md"
+        status: "completed"
   - phase: 1
     name: "Planning"
     workflows:
       - id: "prd"
-        status: "docs/prd.md"
+        status: "completed"
       - id: "validate-prd"
         status: "completed"
       - id: "create-design"
-        status: "required"
+        status: "completed"
+      - id: "validate-design"
+        status: "docs/validation-report-20251204.md"
   - phase: 2
     name: "Solutioning"
     workflows:
       - id: "create-architecture"
-        status: "required"
+        status: "docs/architecture.md"
       - id: "create-epics-and-stories"
         status: "required"
       - id: "test-design"

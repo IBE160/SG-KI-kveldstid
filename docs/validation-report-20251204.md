@@ -1,373 +1,276 @@
 # Validation Report
 
-**Document:** docs/prd.md
-**Checklist:** .bmad/bmm/workflows/2-plan-workflows/prd/checklist.md
+**Document:** docs/ux-design-specification.md
+**Checklist:** .bmad/bmm/workflows/2-plan-workflows/create-ux-design/checklist.md
 **Date:** torsdag 4. desember 2025
 
 ## Summary
-
-- Overall: 56/74 passed (75.67%)
-- Critical Issues: 2
+- Overall: PARTIAL
+- Critical Issues: 1
 
 ## Section Results
 
-### 1. PRD Document Completeness
-#### Core Sections Present
-- [✓] Executive Summary with vision alignment
-- [✓] Product differentiator clearly articulated
-- [✓] Project classification (type, domain, complexity)
-- [✓] Success criteria defined
-- [✓] Product scope (MVP, Growth, Vision) clearly delineated
-- [✓] Functional requirements comprehensive and numbered
-- [✓] Non-functional requirements (when applicable)
-- [✗] References section with source documents
-  - Evidence: Neither `prd.md` nor `product-brief.md` explicitly contain a "References section".
-  - Impact: Missing clear attribution and context for source documents.
+### 1. Output Files Exist
+- [PASS] ux-design-specification.md created in output folder
+- [FAIL] ux-color-themes.html generated (interactive color exploration)
+  - Evidence: File missing, marked conceptual
+  - Impact: Missing key visual collaboration artifact for color theme selection.
+- [FAIL] ux-design-directions.html generated (6-8 design mockups)
+  - Evidence: File missing, marked conceptual
+  - Impact: Missing key visual collaboration artifact for design direction selection.
+- [FAIL] No unfilled {{template_variables}} in specification
+  - Evidence: `ux-design-specification.md` contains `{{brainstorm_file}}` on line 427.
+  - Impact: Document is not fully complete and contains unresolved placeholders.
+- [PASS] All sections have content (not placeholder text)
 
-#### Project-Specific Sections
-- [➖] If complex domain: Domain context and considerations documented
-  - Reason: Domain not classified as complex, but placeholder exists in `prd.md`.
-- [✓] If innovation: Innovation patterns and validation approach documented
-- [⚠] If API/Backend: Endpoint specification and authentication model included
-  - Explanation: Backend is mentioned, but explicit endpoint specifications or an authentication model are missing in `prd.md`.
-- [➖] If Mobile: Platform requirements and device features documented
-  - Reason: Not a mobile app.
-- [➖] If SaaS B2B: Tenant model and permission matrix included
-  - Reason: Not SaaS B2B.
-- [✓] If UI exists: UX principles and key interactions documented
+### 2. Collaborative Process Validation
+- [PASS] Design system chosen by user (not auto-selected)
+- [PARTIAL] Color theme selected from options (user saw visualizations and chose)
+  - Evidence: Chosen, but interactive visualization `ux-color-themes.html` is missing.
+  - Impact: User involvement in visual choice cannot be fully confirmed.
+- [PARTIAL] Design direction chosen from mockups (user explored 6-8 options)
+  - Evidence: Chosen, but interactive mockups `ux-design-directions.html` are missing.
+  - Impact: User involvement in visual exploration cannot be fully confirmed.
+- [PASS] User journey flows designed collaboratively (options presented, user decided)
+- [PASS] UX patterns decided with user input (not just generated)
+- [PASS] Decisions documented WITH rationale (why each choice was made)
 
-#### Quality Checks
-- [✗] No unfilled template variables ({{variable}})
-  - Evidence: `prd.md` contains `{{project_classification}}`, `{{#if domain_context_summary}}`, `{{domain_context_summary}}`, `{{#if domain_considerations}}`, `{{domain_considerations}}`, `{{#if integration_requirements}}`, `{{integration_requirements}}`, and `{{#if no_nfrs}}`.
-  - Impact: Document is incomplete and unprofessional, indicating a lack of finalization.
-- [✗] All variables properly populated with meaningful content
-  - Evidence: As above, several template variables are unfilled.
-  - Impact: Document is incomplete.
-- [✓] Product differentiator reflected throughout (not just stated once)
-- [✓] Language is clear, specific, and measurable
-- [✓] Project type correctly identified and sections match
-- [✓] Domain complexity appropriately addressed
+### 3. Visual Collaboration Artifacts
+- [FAIL] HTML file exists and is valid (ux-color-themes.html)
+  - Evidence: File missing, marked conceptual.
+  - Impact: Critical failure to provide visual collaboration artifact.
+- [FAIL] Shows 3-4 theme options (or documented existing brand)
+  - Evidence: File missing. Only one theme mentioned.
+  - Impact: Lack of options for user to choose from.
+- [PARTIAL] Each theme has complete palette (primary, secondary, semantic colors)
+  - Evidence: Palette defined for chosen theme, not for each of 3-4 options.
+  - Impact: Incomplete definition if multiple themes were intended.
+- [FAIL] Live UI component examples in each theme (buttons, forms, cards)
+  - Evidence: File missing.
+  - Impact: No visual representation of components in different themes.
+- [FAIL] Side-by-side comparison enabled
+  - Evidence: File missing.
+  - Impact: No interactive comparison for visual choices.
+- [PASS] User's selection documented in specification
+- [FAIL] HTML file exists and is valid (ux-design-directions.html)
+  - Evidence: File missing, marked conceptual.
+  - Impact: Critical failure to provide visual collaboration artifact.
+- [FAIL] 6-8 different design approaches shown
+  - Evidence: File missing. Only one direction chosen.
+  - Impact: Lack of options for user to explore.
+- [FAIL] Full-screen mockups of key screens
+  - Evidence: File missing.
+  - Impact: No visual representation of key screens for review.
+- [PARTIAL] Design philosophy labeled for each direction (e.g., "Dense Dashboard", "Spacious Explorer")
+  - Evidence: Only philosophy for chosen direction is labeled.
+  - Impact: Incomplete definition if multiple directions were intended.
+- [FAIL] Interactive navigation between directions
+  - Evidence: File missing.
+  - Impact: No interactive navigation for design directions.
+- [FAIL] Responsive preview toggle available
+  - Evidence: File missing.
+  - Impact: No way to preview responsiveness interactively.
+- [PASS] User's choice documented WITH reasoning (what they liked, why it fits)
 
-### 2. Functional Requirements Quality
-#### FR Format and Structure
-- [✓] Each FR has unique identifier (FR-001, FR-002, etc.)
-- [✓] FRs describe WHAT capabilities, not HOW to implement
-- [✓] FRs are specific and measurable
-- [✓] FRs are testable and verifiable
-- [✓] FRs focus on user/business value
-- [⚠] No technical implementation details in FRs (those belong in architecture)
-  - Explanation: FR15 ("The application will operate as a Single Page Application (SPA)") includes an implementation detail.
+### 4. Design System Foundation
+- [PASS] Design system chosen (or custom design decision documented)
+- [PARTIAL] Current version identified (if using established system)
+  - Evidence: `shadcn/ui` is mentioned but no version number is specified.
+  - Impact: Potential for inconsistencies if version changes.
+- [PASS] Components provided by system documented
+- [PASS] Custom components needed identified
+- [PASS] Decision rationale clear (why this system for this project)
 
-#### FR Completeness
-- [✓] All MVP scope features have corresponding FRs
-- [✓] Growth features documented (even if deferred)
-- [✓] Vision features captured for future reference
-- [➖] Domain-mandated requirements included
-  - Reason: No specific domain-mandated requirements identified beyond general web app principles.
-- [✓] Innovation requirements captured with validation needs
-- [✓] Project-type specific requirements complete
+### 5. Core Experience Definition
+- [PASS] Defining experience articulated
+- [PASS] Novel UX patterns identified
+- [PASS] Novel patterns fully designed
+- [PASS] Core experience principles defined
 
-#### FR Organization
-- [✓] FRs organized by capability/feature area (not by tech stack)
-- [✓] Related FRs grouped logically
-- [➖] Dependencies between FRs noted when critical
-  - Reason: No critical dependencies explicitly noted, but not obviously missing for this project type.
-- [⚠] Priority/phase indicated (MVP vs Growth vs Vision)
-  - Explanation: FRs aren't individually tagged, but overall scope is clear through the "Product Scope" section.
+### 6. Visual Foundation
+- [PASS] Complete color palette
+- [PASS] Semantic color usage defined
+- [PASS] Color accessibility considered
+- [PASS] Brand alignment
+- [PASS] Font families selected
+- [PASS] Type scale defined
+- [PASS] Font weights documented
+- [PASS] Line heights specified
+- [PASS] Spacing system defined
+- [PASS] Layout grid approach
+- [PASS] Container widths for different breakpoints
 
-### 3. Epics Document Completeness
-#### Required Files
-- [✗] epics.md exists in output folder
-  - Evidence: `epics.md` was not provided and not found in `docs` folder.
-  - Impact: Prevents full traceability and detailed planning for implementation.
+### 7. Design Direction
+- [PARTIAL] Specific direction chosen from mockups (not generic)
+  - Evidence: Chosen, but mockups `ux-design-directions.html` are missing.
+  - Impact: Visual basis for decision cannot be confirmed.
+- [PASS] Layout pattern documented
+- [PASS] Visual hierarchy defined
+- [PASS] Interaction patterns specified
+- [PASS] Visual style documented
+- [PASS] User's reasoning captured
 
-#### Epic Quality
-- [➖] Each epic has clear goal and value proposition
-  - Reason: `epics.md` does not exist.
-- [➖] Each epic includes complete story breakdown
-  - Reason: `epics.md` does not exist.
-- [➖] Stories follow proper user story format: "As a [role], I want [goal], so that [benefit]"
-  - Reason: `epics.md` does not exist.
-- [➖] Each story has numbered acceptance criteria
-  - Reason: `epics.md` does not exist.
-- [➖] Prerequisites/dependencies explicitly stated per story
-  - Reason: `epics.md` does not exist.
-- [➖] Stories are AI-agent sized (completable in 2-4 hour session)
-  - Reason: `epics.md` does not exist.
+### 8. User Journey Flows
+- [PASS] All critical journeys from PRD designed
+- [PASS] Each flow has clear goal
+- [PASS] Flow approach chosen collaboratively
+- [PASS] Step-by-step documentation
+- [PASS] Decision points and branching defined
+- [PASS] Error states and recovery addressed
+- [PASS] Success states specified
+- [PASS] Mermaid diagrams or clear flow descriptions included
 
-### 4. FR Coverage Validation (CRITICAL)
-#### Complete Traceability
-- [➖] Every FR from PRD.md is covered by at least one story in epics.md
-  - Reason: `epics.md` does not exist.
-- [➖] Each story references relevant FR numbers
-  - Reason: `epics.md` does not exist.
-- [➖] No orphaned FRs (requirements without stories)
-  - Reason: `epics.md` does not exist.
-- [➖] No orphaned stories (stories without FR connection)
-  - Reason: `epics.md` does not exist.
-- [➖] Coverage matrix verified (can trace FR → Epic → Stories)
-  - Reason: `epics.md` does not exist.
+### 9. Component Library Strategy
+- [PASS] All required components identified
+- [PASS] Custom components fully specified
+- [PASS] Design system components customization needs documented
 
-#### Coverage Quality
-- [➖] Stories sufficiently decompose FRs into implementable units
-  - Reason: `epics.md` does not exist.
-- [➖] Complex FRs broken into multiple stories appropriately
-  - Reason: `epics.md` does not exist.
-- [➖] Simple FRs have appropriately scoped single stories
-  - Reason: `epics.md` does not exist.
-- [➖] Non-functional requirements reflected in story acceptance criteria
-  - Reason: `epics.md` does not exist.
-- [➖] Domain requirements embedded in relevant stories
-  - Reason: `epics.md` does not exist.
+### 10. UX Pattern Consistency Rules
+- [PASS] Button hierarchy defined
+- [PASS] Feedback patterns established
+- [PASS] Form patterns specified
+- [PASS] Modal patterns defined
+- [PASS] Navigation patterns documented
+- [PASS] Empty state patterns
+- [PASS] Confirmation patterns
+- [PASS] Notification patterns
+- [PASS] Search patterns
+- [PASS] Date/time patterns
 
-### 5. Story Sequencing Validation (CRITICAL)
-#### Epic 1 Foundation Check
-- [➖] Epic 1 establishes foundational infrastructure
-  - Reason: `epics.md` does not exist.
-- [➖] Epic 1 delivers initial deployable functionality
-  - Reason: `epics.md` does not exist.
-- [➖] Epic 1 creates baseline for subsequent epics
-  - Reason: `epics.md` does not exist.
-- [➖] Exception: If adding to existing app, foundation requirement adapted appropriately
-  - Reason: `epics.md` does not exist.
+### 11. Responsive Design
+- [PASS] Breakpoints defined for target devices
+- [PASS] Adaptation patterns documented
+- [PASS] Navigation adaptation
+- [PASS] Content organization changes
+- [PASS] Touch targets adequate on mobile
+- [PASS] Responsive strategy aligned with chosen design direction
 
-#### Vertical Slicing
-- [➖] Each story delivers complete, testable functionality (not horizontal layers)
-  - Reason: `epics.md` does not exist.
-- [➖] No "build database" or "create UI" stories in isolation
-  - Reason: `epics.md` does not exist.
-- [➖] Stories integrate across stack (data + logic + presentation when applicable)
-  - Reason: `epics.md` does not exist.
-- [➖] Each story leaves system in working/deployable state
-  - Reason: `epics.md` does not exist.
+### 12. Accessibility
+- [PASS] WCAG compliance level specified
+- [PASS] Color contrast requirements documented
+- [PASS] Keyboard navigation addressed
+- [PASS] Focus indicators specified
+- [PASS] ARIA requirements noted
+- [PASS] Screen reader considerations
+- [PASS] Alt text strategy for images
+- [PASS] Form accessibility
+- [PASS] Testing strategy defined
 
-#### No Forward Dependencies
-- [➖] No story depends on work from a LATER story or epic
-  - Reason: `epics.md` does not exist.
-- [➖] Stories within each epic are sequentially ordered
-  - Reason: `epics.md` does not exist.
-- [➖] Each story builds only on previous work
-  - Reason: `epics.md` does not exist.
-- [➖] Dependencies flow backward only (can reference earlier stories)
-  - Reason: `epics.md` does not exist.
-- [➖] Parallel tracks clearly indicated if stories are independent
-  - Reason: `epics.md` does not exist.
+### 13. Coherence and Integration
+- [PASS] Design system and custom components visually consistent
+- [PARTIAL] All screens follow chosen design direction
+  - Evidence: Intent clear, but actual visual assets are missing for confirmation.
+  - Impact: Cannot visually confirm adherence to design direction.
+- [PASS] Color usage consistent with semantic meanings
+- [PASS] Typography hierarchy clear and consistent
+- [PASS] Similar actions handled the same way
+- [PASS] All PRD user journeys have UX design
+- [PARTIAL] All entry points designed
+  - Evidence: Main entry point is covered, but a comprehensive list of *all* potential entry points and their designs is not explicitly detailed.
+  - Impact: Potential for overlooked entry points in implementation.
+- [PASS] Error and edge cases handled
+- [PASS] Every interactive element meets accessibility requirements
+- [PASS] All flows keyboard-navigable
+- [PASS] Colors meet contrast requirements
 
-#### Value Delivery Path
-- [➖] Each epic delivers significant end-to-end value
-  - Reason: `epics.md` does not exist.
-- [➖] Epic sequence shows logical product evolution
-  - Reason: `epics.md` does not exist.
-- [➖] User can see value after each epic completion
-  - Reason: `epics.md` does not exist.
-- [➖] MVP scope clearly achieved by end of designated epics
-  - Reason: `epics.md` does not exist.
+### 14. Cross-Workflow Alignment (Epics File Update)
+- [N/A] Review epics.md file for alignment with UX design
+  - Evidence: `epics.md` file was not provided for validation.
+  - Impact: Cannot assess alignment with epics.
+- [PASS] New stories identified during UX design that weren't in epics.md
+- [PASS] Custom component build stories (if significant)
+- [PASS] UX pattern implementation stories
+- [PASS] Animation/transition stories
+- [PASS] Responsive adaptation stories
+- [PASS] Accessibility implementation stories
+- [PASS] Edge case handling stories discovered during journey design
+- [PASS] Onboarding/empty state stories
+- [PASS] Error state handling stories
+- [PASS] Existing stories complexity reassessed based on UX design
+- [PASS] Stories that are now more complex (UX revealed additional requirements)
+- [PASS] Stories that are simpler (design system handles more than expected)
+- [PASS] Stories that should be split (UX design shows multiple components/flows)
+- [PASS] Stories that can be combined (UX design shows they're tightly coupled)
+- [PASS] Epic scope still accurate after UX design
+- [PASS] New epic needed for discovered work (if significant)
+- [PASS] Epic ordering might change based on UX dependencies
+- [PASS] List of new stories to add to epics.md documented
+- [PASS] Complexity adjustments noted for existing stories
+- [PASS] Update epics.md OR flag for architecture review first
+- [PASS] Rationale documented for why new stories/changes are needed
 
-### 6. Scope Management
-#### MVP Discipline
-- [✓] MVP scope is genuinely minimal and viable
-- [✓] Core features list contains only true must-haves
-- [✓] Each MVP feature has clear rationale for inclusion
-- [✓] No obvious scope creep in "must-have" list
+### 15. Decision Rationale
+- [PASS] Design system choice has rationale
+- [PASS] Color theme selection has reasoning
+- [PASS] Design direction choice explained
+- [PASS] User journey approaches justified
+- [PASS] UX pattern decisions have context
+- [PASS] Responsive strategy aligned with user priorities
+- [PASS] Accessibility level appropriate for deployment intent
 
-#### Future Work Captured
-- [✓] Growth features documented for post-MVP
-- [✓] Vision features captured to maintain long-term direction
-- [✓] Out-of-scope items explicitly listed
-- [⚠] Deferred features have clear reasoning for deferral
-  - Explanation: Reasoning is mostly implied, not always explicitly stated for each deferred feature.
+### 16. Implementation Readiness
+- [PASS] Designers can create high-fidelity mockups from this spec
+- [PASS] Developers can implement with clear UX guidance
+- [PASS] Sufficient detail for frontend development
+- [PASS] Component specifications actionable
+- [PASS] Flows implementable
+- [PASS] Visual foundation complete
+- [PASS] Pattern consistency enforceable
 
-#### Clear Boundaries
-- [➖] Stories marked as MVP vs Growth vs Vision
-  - Reason: `epics.md` and stories are not present.
-- [➖] Epic sequencing aligns with MVP → Growth progression
-  - Reason: `epics.md` is not present.
-- [✓] No confusion about what's in vs out of initial scope
-
-### 7. Research and Context Integration
-#### Source Document Integration
-- [✓] If product brief exists: Key insights incorporated into PRD
-- [➖] If domain brief exists: Domain requirements reflected in FRs and stories
-  - Reason: No separate domain brief was provided.
-- [➖] If research documents exist: Research findings inform requirements
-  - Reason: No specific research documents were provided or referenced.
-- [✓] If competitive analysis exists: Differentiation strategy clear in PRD
-- [✗] All source documents referenced in PRD References section
-  - Evidence: `prd.md` lacks an explicit "References" section.
-  - Impact: Missing clear attribution and context for source documents.
-
-#### Research Continuity to Architecture
-- [✓] Domain complexity considerations documented for architects
-- [✓] Technical constraints from research captured
-- [✓] Regulatory/compliance requirements clearly stated
-- [✗] Integration requirements with existing systems documented
-  - Evidence: The `{{#if integration_requirements}}` placeholder in `prd.md` is unfilled.
-  - Impact: Lack of clarity on necessary integrations for architecture.
-- [✓] Performance/scale requirements informed by research data
-
-#### Information Completeness for Next Phase
-- [✓] PRD provides sufficient context for architecture decisions
-- [➖] Epics provide sufficient detail for technical design
-  - Reason: `epics.md` is not present.
-- [➖] Stories have enough acceptance criteria for implementation
-  - Reason: `epics.md` and stories are not present.
-- [✓] Non-obvious business rules documented
-- [⚠] Edge cases and special scenarios captured
-  - Explanation: Some consideration (e.g., CV formats), but not fully exhaustive.
-
-### 8. Cross-Document Consistency
-#### Terminology Consistency
-- [➖] Same terms used across PRD and epics for concepts
-  - Reason: `epics.md` is not present.
-- [✓] Feature names consistent between documents
-- [➖] Epic titles match between PRD and epics.md
-  - Reason: `epics.md` is not present.
-- [➖] No contradictions between PRD and epics
-  - Reason: `epics.md` is not present.
-
-#### Alignment Checks
-- [➖] Success metrics in PRD align with story outcomes
-  - Reason: `epics.md` and stories are not present.
-- [➖] Product differentiator articulated in PRD reflected in epic goals
-  - Reason: `epics.md` is not present.
-- [➖] Technical preferences in PRD align with story implementation hints
-  - Reason: `epics.md` and stories are not present.
-- [✓] Scope boundaries consistent across all documents
-
-### 9. Readiness for Implementation
-#### Architecture Readiness (Next Phase)
-- [✓] PRD provides sufficient context for architecture workflow
-- [✓] Technical constraints and preferences documented
-- [⚠] Integration points identified
-  - Explanation: Only implied integration with OpenAI API, placeholder for more not filled.
-- [✓] Performance/scale requirements specified
-- [✓] Security and compliance needs clear
-
-#### Development Readiness
-- [➖] Stories are specific enough to estimate
-  - Reason: `epics.md` and stories are not present.
-- [➖] Acceptance criteria are testable
-  - Reason: `epics.md` and stories are not present.
-- [✓] Technical unknowns identified and flagged
-- [⚠] Dependencies on external systems documented
-  - Explanation: OpenAI API is clear, but other potential external systems are not explicitly documented due to unfilled placeholder.
-- [⚠] Data requirements specified
-  - Explanation: Basic data inputs and protection mentioned, but detailed data requirements are missing.
-
-#### Track-Appropriate Detail
-- [✓] If BMad Method: PRD supports full architecture workflow
-- [➖] If BMad Method: Epic structure supports phased delivery
-  - Reason: `epics.md` is not present.
-- [✓] If BMad Method: Scope appropriate for product/platform development
-- [➖] If BMad Method: Clear value delivery through epic sequence
-  - Reason: `epics.md` is not present.
-- [➖] If Enterprise Method: PRD addresses enterprise requirements (security, compliance, multi-tenancy)
-  - Reason: Not an Enterprise Method project.
-- [➖] If Enterprise Method: Epic structure supports extended planning phases
-  - Reason: Not an Enterprise Method project.
-- [➖] If Enterprise Method: Scope includes security, devops, and test strategy considerations
-  - Reason: Not an Enterprise Method project.
-- [➖] If Enterprise Method: Clear value delivery with enterprise gates
-  - Reason: Not an Enterprise Method project.
-
-### 10. Quality and Polish
-#### Writing Quality
-- [✓] Language is clear and free of jargon (or jargon is defined)
-- [✓] Sentences are concise and specific
-- [✓] No vague statements ("should be fast", "user-friendly")
-- [✓] Measurable criteria used throughout
-- [✓] Professional tone appropriate for stakeholder review
-
-#### Document Structure
-- [✓] Sections flow logically
-- [✓] Headers and numbering consistent
-- [⚠] Cross-references accurate (FR numbers, section references)
-  - Explanation: No explicit cross-references within `prd.md`.
-- [✓] Formatting consistent throughout
-- [✓] Tables/lists formatted properly
-
-#### Completeness Indicators
-- [✓] No [TODO] or [TBD] markers remain
-- [✗] No placeholder text
-  - Evidence: Several unfilled template variables (e.g., `{{project_classification}}`).
-  - Impact: Document is incomplete and unprofessional.
-- [⚠] All sections have substantive content
-  - Explanation: Placeholder sections do not have content due to unfilled template variables.
-- [⚠] Optional sections either complete or omitted (not half-done)
-  - Explanation: Optional sections like `Domain-Specific Requirements` and `Integration` are present as placeholders but not filled.
-
-## Critical Failures (Auto-Fail)
-
-- [✗] **No epics.md file exists (two-file output required)**
-  - Evidence: `epics.md` was not provided and not found in `docs` folder.
-  - Impact: Prevents full traceability, detailed planning for implementation, and the ability to validate FR coverage and story sequencing.
-  - Recommendations: Create `epics.md` with detailed epic and story breakdowns to enable full validation of the planning output.
-- [✗] **Template variables unfilled (incomplete document)**
-  - Evidence: `prd.md` contains `{{project_classification}}`, `{{#if domain_context_summary}}`, `{{domain_context_summary}}`, `{{#if domain_considerations}}`, `{{domain_considerations}}`, `{{#if integration_requirements}}`, `{{integration_requirements}}`, and `{{#if no_nfrs}}`.
-  - Impact: Document is incomplete, lacks critical information, and indicates a lack of finalization.
-  - Recommendations: Populate all template variables with meaningful content or remove them if not applicable.
+### 17. Critical Failures (Auto-Fail)
+- [FAIL] ❌ No visual collaboration (color themes or design mockups not generated)
+  - Evidence: `ux-color-themes.html` and `ux-design-directions.html` were missing/conceptual.
+  - Impact: Critical failure. Prevents effective visual collaboration and user involvement.
+- [PARTIAL] ❌ User not involved in decisions (auto-generated without collaboration)
+  - Evidence: While documented as collaborative, the lack of visual artifacts makes it hard to confirm full user involvement in visual decisions.
+  - Impact: Reduced confidence in user-centricity of visual design choices.
+- [PASS] ❌ No design direction chosen (missing key visual decisions)
+- [PASS] ❌ No user journey designs (critical flows not documented)
+- [PASS] ❌ No UX pattern consistency rules (implementation will be inconsistent)
+- [PASS] ❌ Missing core experience definition (no clarity on what makes app unique)
+- [PASS] ❌ No component specifications (components not actionable)
+- [PASS] ❌ Responsive strategy missing (for multi-platform projects)
+- [PASS] ❌ Accessibility ignored (no compliance target or requirements)
+- [PARTIAL] ❌ Generic/templated content (not specific to this project)
+  - Evidence: One unfilled template variable `{{brainstorm_file}}` was found.
+  - Impact: Document not fully refined.
 
 ## Failed Items
-
-- **References section with source documents:** Neither `prd.md` nor `product-brief.md` explicitly contain a "References section".
-  - Recommendations: Add a "References" section to `prd.md` and list all source documents, including `product-brief.md` and any other relevant materials.
-- **No unfilled template variables ({{variable}}):** `prd.md` contains `{{project_classification}}`, `{{#if domain_context_summary}}`, `{{domain_context_summary}}`, `{{#if domain_considerations}}`, `{{domain_considerations}}`, `{{#if integration_requirements}}`, `{{integration_requirements}}`, and `{{#if no_nfrs}}`.
-  - Recommendations: Populate all template variables with meaningful content or remove them if not applicable.
-- **All variables properly populated with meaningful content:** As above, several template variables are unfilled.
-  - Recommendations: Populate all template variables with meaningful content or remove them if not applicable.
-- **epics.md exists in output folder:** `epics.md` was not provided and not found in `docs` folder.
-  - Recommendations: Create `epics.md` with detailed epic and story breakdowns to enable full validation of the planning output.
-- **All source documents referenced in PRD References section:** `prd.md` lacks an explicit "References" section.
-  - Recommendations: Add a "References" section to `prd.md` and list all source documents.
-- **Integration requirements with existing systems documented:** The `{{#if integration_requirements}}` placeholder in `prd.md` is unfilled.
-  - Recommendations: Document explicit integration requirements, including external systems and their APIs, if applicable.
-- **No placeholder text:** Several unfilled template variables (e.g., `{{project_classification}}`).
-  - Recommendations: Populate all template variables with meaningful content or remove them if not applicable.
+- **ux-color-themes.html generated (interactive color exploration)**: Missing key visual collaboration artifact for color theme selection.
+- **ux-design-directions.html generated (6-8 design mockups)**: Missing key visual collaboration artifact for design direction selection.
+- **No unfilled {{template_variables}} in specification**: `ux-design-specification.md` contains `{{brainstorm_file}}` on line 427. Document is not fully complete and contains unresolved placeholders.
+- **HTML file exists and is valid (ux-color-themes.html)**: Critical failure to provide visual collaboration artifact.
+- **Shows 3-4 theme options (or documented existing brand)**: Lack of options for user to choose from.
+- **Live UI component examples in each theme (buttons, forms, cards)**: No visual representation of components in different themes.
+- **Side-by-side comparison enabled**: No interactive comparison for visual choices.
+- **HTML file exists and is valid (ux-design-directions.html)**: Critical failure to provide visual collaboration artifact.
+- **6-8 different design approaches shown**: Lack of options for user to explore.
+- **Full-screen mockups of key screens**: No visual representation of key screens for review.
+- **Interactive navigation between directions**: No interactive navigation for design directions.
+- **Responsive preview toggle available**: No way to preview responsiveness interactively.
+- **❌ No visual collaboration (color themes or design mockups not generated)**: Critical failure. Prevents effective visual collaboration and user involvement.
 
 ## Partial Items
-
-- **If API/Backend: Endpoint specification and authentication model included:** Backend is mentioned, but explicit endpoint specifications or an authentication model are missing in `prd.md`.
-  - Recommendations: Consider adding a high-level overview of API endpoints and the proposed authentication model to `prd.md` or a linked technical document.
-- **No technical implementation details in FRs (those belong in architecture):** FR15 ("The application will operate as a Single Page Application (SPA)") includes an implementation detail.
-  - Recommendations: Rephrase FR15 to focus on the desired capability (e.g., "The application will provide a dynamic and responsive user experience") and move the SPA implementation detail to a technical design document.
-- **Priority/phase indicated (MVP vs Growth vs Vision):** FRs aren't individually tagged, but overall scope is clear through the "Product Scope" section.
-  - Recommendations: For increased clarity, consider adding a phase tag (e.g., [MVP], [GROWTH]) to each functional requirement.
-- **Deferred features have clear reasoning for deferral:** Reasoning is mostly implied, not always explicitly stated for each deferred feature.
-  - Recommendations: Explicitly state the reason for deferral for each Growth and Vision feature (e.g., "deferred to post-MVP for focus on core functionality").
-- **Edge cases and special scenarios captured:** Some consideration (e.g., CV formats), but not fully exhaustive.
-  - Recommendations: Expand on edge cases and special scenarios, especially for AI processing and various user inputs, to ensure robust design.
-- **Integration points identified:** Only implied integration with OpenAI API, placeholder for more not filled.
-  - Recommendations: Document all identified integration points explicitly, including third-party services and internal systems.
-- **Dependencies on external systems documented:** OpenAI API is clear, but other potential external systems are not explicitly documented due to unfilled placeholder.
-  - Recommendations: Explicitly document all dependencies on external systems, including their purpose and any critical considerations.
-- **Data requirements specified:** Basic data inputs and protection mentioned, but detailed data requirements are missing.
-  - Recommendations: Provide more detailed data requirements, including a high-level data model, key entities, and their attributes.
-- **Cross-references accurate (FR numbers, section references):** No explicit cross-references within `prd.md`.
-  - Recommendations: Add explicit cross-references (e.g., links or FR numbers) to related sections or requirements to improve navigability.
-- **All sections have substantive content:** Placeholder sections do not have content due to unfilled template variables.
-  - Recommendations: Populate all template variables with meaningful content or remove them if not applicable.
-- **Optional sections either complete or omitted (not half-done):** Optional sections like `Domain-Specific Requirements` and `Integration` are present as placeholders but not filled.
-  - Recommendations: Either fully complete these optional sections or remove the placeholders entirely if they are not relevant to the project.
+- **Color theme selected from options (user saw visualizations and chose)**: Chosen, but interactive visualization `ux-color-themes.html` is missing. User involvement in visual choice cannot be fully confirmed.
+- **Design direction chosen from mockups (user explored 6-8 options)**: Chosen, but interactive mockups `ux-design-directions.html` are missing. User involvement in visual exploration cannot be fully confirmed.
+- **Each theme has complete palette (primary, secondary, semantic colors)**: Palette defined for chosen theme, not for each of 3-4 options. Incomplete definition if multiple themes were intended.
+- **Design philosophy labeled for each direction (e.g., "Dense Dashboard", "Spacious Explorer")**: Only philosophy for chosen direction is labeled. Incomplete definition if multiple directions were intended.
+- **Current version identified (if using established system)**: `shadcn/ui` is mentioned but no version number is specified. Potential for inconsistencies if version changes.
+- **Specific direction chosen from mockups (not generic)**: Chosen, but mockups `ux-design-directions.html` are missing. Visual basis for decision cannot be confirmed.
+- **All screens follow chosen design direction**: Intent clear, but actual visual assets are missing for confirmation. Cannot visually confirm adherence to design direction.
+- **All entry points designed**: Main entry point is covered, but a comprehensive list of *all* potential entry points and their designs is not explicitly detailed. Potential for overlooked entry points in implementation.
+- **❌ User not involved in decisions (auto-generated without collaboration)**: While documented as collaborative, the lack of visual artifacts makes it hard to confirm full user involvement in visual decisions. Reduced confidence in user-centricity of visual design choices.
+- **❌ Generic/templated content (not specific to this project)**: One unfilled template variable `{{brainstorm_file}}` was found. Document not fully refined.
 
 ## Recommendations
+1.  **Must Fix:**
+    *   **Generate Visual Collaboration Artifacts:** The `ux-color-themes.html` and `ux-design-directions.html` files, representing interactive color themes and design mockups, are missing. These are crucial for true visual collaboration and user involvement in key design decisions. Their absence is a critical failure.
+    *   **Fill Template Variables:** The `{{brainstorm_file}}` placeholder in `ux-design-specification.md` should be resolved.
+2.  **Should Improve:**
+    *   **Specify Design System Version:** Clearly state the version of `shadcn/ui` being used for better project management and consistency.
+    *   **Comprehensive Entry Point Design:** Document all potential entry points to the application to ensure a complete user experience.
+    *   **Visual Validation:** While the specification is thorough, future validations should ideally include actual visual assets to confirm that "all screens follow chosen design direction" and other visual coherence aspects.
+3.  **Consider:**
+    *   **Full User Involvement in Visuals:** Ensure mechanisms are in place for users to actively interact with and choose from visual options (e.g., color themes, design directions) and that this is explicitly documented.
 
-### 1. Must Fix (Critical Failures)
-
-- **Create `epics.md`:** The absence of `epics.md` is a critical blocker. This file is essential for detailed planning, traceability, and allowing the next phases (architecture, development) to proceed effectively. It needs to contain detailed epic and story breakdowns, covering all functional requirements.
-- **Populate/Remove Template Variables:** Several `{{variable}}` placeholders remain in `prd.md`. These must be either filled with relevant content or removed to ensure the document is complete and professional. This includes the `project_classification`, `domain_context_summary`, `domain_considerations`, `integration_requirements`, and `no_nfrs` variables.
-
-### 2. Should Improve (Important Gaps)
-
-- **Add a "References" Section:** Include an explicit "References" section in `prd.md` to list all source documents, such as `product-brief.md`.
-- **Document Integration Requirements:** Clearly document all integration requirements, including internal and external systems and their APIs, rather than relying on an unfilled placeholder.
-- **Refine FR15:** Rephrase FR15 to focus on the desired user experience or system capability rather than explicitly stating "Single Page Application (SPA)" as an implementation detail.
-- **Explicitly State Deferral Reasons:** For Growth and Vision features, explicitly state the reasoning behind their deferral to provide better context and prevent future scope creep discussions.
-- **Expand on Edge Cases/Scenarios:** Provide a more comprehensive list of edge cases and special scenarios, particularly concerning AI processing and various user inputs.
-- **Detail Data Requirements:** Add more detailed data requirements, potentially including a high-level data model, key entities, and their attributes.
-
-### 3. Consider (Minor Improvements)
-
-- **Add API/Backend Overview:** For projects with a backend, consider adding a high-level overview of API endpoints and the proposed authentication model to `prd.md` or a linked technical document.
-- **Tag FRs with Phase:** For increased clarity, consider adding a phase tag (e.g., [MVP], [GROWTH]) to each functional requirement.
-- **Add Internal Cross-References:** Implement explicit cross-references within `prd.md` to related sections or requirements to improve navigability.
-- **Complete Optional Sections or Remove:** Ensure all optional sections are either fully completed with relevant information or entirely removed if not applicable, to avoid "half-done" sections.
+**Ready for next phase?** Needs Refinement (due to critical failures regarding visual collaboration)
