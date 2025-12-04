@@ -30,7 +30,7 @@ workflow_items:
       - id: "research"
         status: "docs/research-technical-2025-12-04_1.md"
       - id: "product-brief"
-        status: "completed"
+        status: "docs/product-brief.md"
   - phase: 1
     name: "Planning"
     workflows:
