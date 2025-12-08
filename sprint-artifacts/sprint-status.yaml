@@ -1,0 +1,47 @@
+# generated: 2025-12-08
+project: AI CV & Job Application Assistant
+project_key: AI CV & Job Application Assistant
+tracking_system: file-system
+story_location: C:\Users\morte\OneDrive - Høgskolen i Molde\Programering med KI\KI kveldstid siste versjon\SG-KI-kveldstid\docs
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic exists in epic file but not contexted
+#   - contexted: Epic tech context created (required before drafting stories)
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - drafted: Story file created in stories folder
+#   - ready-for-dev: Draft approved and story context created
+#   - in-progress: Developer actively working on implementation
+#   - review: Under SM review (via code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - completed: Retrospective has been done
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epics should be 'contexted' before stories can be 'drafted'
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically drafts next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', SM reviews, then Dev moves to 'done'
+
+development_status:
+  # Epic 1 Stories
+  epic-1: contexted # Assuming it's contexted as stories are being developed
+  1-1-upload-cv-text-only: done
+  1-2-manually-edit-profile: ready-for-dev # Part of MVP, but not yet ready-for-dev
+  epic-1-retrospective: completed
+
+  # Epic 2 Stories (part of MVP)
+  epic-2: backlog # Not yet contexted
+  2-1-input-job-advertisement: backlog
+  2-2-semantic-matching-of-cv-to-job-ad: backlog
+  2-3-basic-gap-table: backlog
+
+  # Epic 3 Stories (part of MVP)
+  epic-3: backlog # Not yet contexted
+  3-1-simple-cover-letter-generation-view: backlog

@@ -1,0 +1,99 @@
+<story-context id=".bmad/bmm/workflows/4-implementation/story-context/template" v="1.0">
+  <metadata>
+    <epicId>1</epicId>
+    <storyId>1.1</storyId>
+    <title>Upload CV (Text-only)</title>
+    <status>drafted</status>
+    <generatedAt>2025-12-04</generatedAt>
+    <generator>BMAD Story Context Workflow</generator>
+    <sourceStoryPath>docs/CVP-101.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>As a job seeker</asA>
+    <iWant>I want to upload my CV as a text-only document</iWant>
+    <soThat>so that the system can parse my skills and experience for job matching</soThat>
+    <tasks>
+**Backend:**
+*   [ ] Implement FastAPI endpoint: `POST /cv_documents` for file upload. (AC: 1, 2)
+*   [ ] Integrate open-source Python library for text extraction from `.txt` files. (AC: 3)
+*   [ ] Integrate open-source Python library for text extraction from text-based `.pdf` files. (AC: 3)
+*   [ ] Store extracted raw text content in `cv_documents` table in PostgreSQL. (AC: 3)
+*   [ ] Store the uploaded raw file in AWS S3. (AC: 3)
+*   [ ] Generate and return a confirmation response after processing. (AC: 4)
+*   [ ] Implement error handling for file upload failures (e.g., unsupported format, large file size).
+
+**Frontend:**
+*   [ ] Develop React UI for the profile creation page with a file upload component. (AC: 1, 2)
+*   [ ] Handle file selection (drag-and-drop or browse) and initiate API call to backend for upload. (AC: 2)
+*   [ ] Display a confirmation message upon successful upload. (AC: 4)
+*   [ ] Implement a loading indicator during the upload and processing.
+    </tasks>
+  </story>
+
+  <acceptanceCriteria>
+1.  **Given** I am on the profile creation page
+2.  **When** I upload a .txt or a .pdf (parsed as text) file
+3.  **Then** The system extracts key information like name, contact, work experience, education, and skills.
+4.  **And** I receive a confirmation that my CV has been processed.
+  </acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <entry path="docs/epics.md" title="AI CV & Job Application Assistant - Epic Breakdown" section="Epic 1: Core Profile Management, Story 1.1: Upload CV (Text-only)">
+        Brief: Outlines Epic 1 goal to manage CV data and Story 1.1 capability to upload text-only CVs for parsing.
+      </entry>
+      <entry path="docs/PRD.md" title="Product Requirements Document" section="Functional Requirements (FR1), Non-Functional Requirements (Performance, Security), Product Scope (MVP - CV Upload)">
+        Brief: Defines the functional requirement for CV upload (FR1), specifies performance targets for AI processing and security requirements for data handling.
+      </entry>
+      <entry path="docs/architecture.md" title="Architecture" section="Data Ingestion (Document Parsing), File Storage (AWS S3), Data Architecture (CV Document), API Contracts, Backend (FastAPI), Frontend (React), Testing Strategy, Error Handling, Logging, Naming Conventions, Code Organization, Deployment">
+        Brief: Details the technical choices for document parsing (open-source Python libs for MVP), file storage (AWS S3), database entities (CV Document), API endpoints (`POST /cv_documents`), framework (FastAPI, React), and cross-cutting concerns like testing and error handling.
+      </entry>
+    </docs>
+    <code>
+      <entry path="backend/app/api/endpoints/documents.py" kind="controller" symbol="POST /cv_documents" reason="New API endpoint for CV upload."/>
+      <entry path="backend/app/crud/cv_documents.py" kind="crud" reason="New CRUD operations for CV Document entity."/>
+      <entry path="backend/app/models/cv_document.py" kind="model" reason="Define/update database model for CV Document."/>
+      <entry path="backend/app/schemas/cv_document.py" kind="schema" reason="Define Pydantic schema for CV Document request/response."/>
+      <entry path="frontend/src/pages/ProfileCreationPage.jsx" kind="component/page" reason="New UI for CV upload."/>
+      <entry path="frontend/src/api/cv.js" kind="api client" reason="New frontend API service for CV upload."/>
+    </code>
+    <dependencies>
+      <entry ecosystem="Node" packages="React, Vite, Tailwind CSS, PostCSS, Autoprefixer"/>
+      <entry ecosystem="Python" packages="FastAPI, Uvicorn, SQLAlchemy, pgvector, boto3, PyPDF2 (or similar), pdfminer.six (or similar)"/>
+    </dependencies>
+  </artifacts>
+
+  <constraints>
+    <entry>Data Ingestion: Use open-source Python libraries for MVP (e.g., PyPDF2, pdfminer.six for PDF text; direct read for TXT).</entry>
+    <entry>File Storage: AWS S3 for storing original uploaded CV files.</entry>
+    <entry>Data Architecture: Utilize `CV Document` entity in PostgreSQL for metadata and `raw_text_content` storage.</entry>
+    <entry>API Contract: `POST /cv_documents` endpoint for CV upload.</entry>
+    <entry>Error Handling: Standardized API Error Responses (FastAPI HTTPException).</entry>
+    <entry>Logging: Structured Logging integrated with AWS CloudWatch Logs.</entry>
+    <entry>Naming Conventions: `snake_case` (API endpoints, Python), `PascalCase` (React components), `camelCase` (JS variables).</entry>
+    <entry>Code Organization: Adhere to defined `backend/app/` and `frontend/src/` subdirectory structures.</entry>
+  </constraints>
+  <interfaces>
+    <entry name="CV Upload API" kind="REST endpoint" signature="POST /cv_documents" path="backend/app/api/endpoints/documents.py">
+      Returns `CvDocumentSchema` upon successful upload and processing.
+    </entry>
+  </interfaces>
+  <tests>
+    <standards>
+      Layered approach: Unit tests (parsing logic, S3, DB), Integration tests (API endpoint), Component tests (UI).
+    </standards>
+    <locations>
+      <entry>backend/tests/</entry>
+      <entry>frontend/src/</entry>
+    </locations>
+    <ideas>
+      <entry ac_id="2">Verify `POST /cv_documents` handles `.txt` and `.pdf` (text-only) uploads correctly.</entry>
+      <entry ac_id="3">Verify extracted data for various CV formats and content.</entry>
+      <entry ac_id="4">Verify confirmation message is returned upon successful processing.</entry>
+      <entry>Verify S3 storage of raw CV files.</entry>
+      <entry>Verify database persistence of CV metadata and raw text content.</entry>
+      <entry>Frontend component tests for file selection, upload interaction, and loading indicators.</entry>
+    </ideas>
+  </tests>
+</story-context>
