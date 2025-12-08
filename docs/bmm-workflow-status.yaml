@@ -59,4 +59,4 @@ workflow_items:
     name: "Implementation"
     workflows:
       - id: "sprint-planning"
-        status: "required"
+        status: "completed"
