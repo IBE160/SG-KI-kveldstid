@@ -18,45 +18,45 @@ so that I can correct any parsing errors or add missing details.
 ## Tasks / Subtasks
 
 **1. Frontend Development: Profile Editing Interface**
-    *   **Task:** Implement the "Profile Editing Interface" React component.
-        *   **Subtask:** Create `ProfileEditorForm.jsx` (or `.tsx`) in `frontend/src/pages/` or `frontend/src/components/`, adhering to `PascalCase` naming convention.
-        *   **Subtask:** Integrate `shadcn/ui` form components for input fields (e.g., `Input`, `Textarea`, `Select`) to display extracted CV fields. (Ref: `ux-design-specification.md` - Design System, Form Patterns)
-        *   **Subtask:** Implement state management for form data (e.g., using React hooks like `useState`, `useReducer`, or a context API).
-        *   **Subtask:** Implement "Save" and "Cancel" buttons, following button hierarchy patterns.
-        *   **Subtask:** Implement client-side validation for input fields, displaying inline error messages `On Blur` and `On Submit`. (Ref: `ux-design-specification.md` - Form Patterns)
-        *   **Subtask:** Ensure full responsiveness for desktop, tablet, and mobile views. (Ref: `ux-design-specification.md` - Responsive Strategy)
-        *   **Subtask:** Implement keyboard navigation and focus management. (Ref: `ux-design-specification.md` - Accessibility Strategy)
-        *   **Subtask:** Integrate API calls to fetch existing CV data and submit updated data.
+    *   **Task:** Implement the "Profile Editing Interface" React component. (AC2)
+        *   **Subtask:** Create `ProfileEditorForm.jsx` (or `.tsx`) in `frontend/src/pages/` or `frontend/src/components/`, adhering to `PascalCase` naming convention. (AC2)
+        *   **Subtask:** Integrate `shadcn/ui` form components for input fields (e.g., `Input`, `Textarea`, `Select`) to display extracted CV fields. (AC3)
+        *   **Subtask:** Implement state management for form data (e.g., using React hooks like `useState`, `useReducer`, or a context API). (AC3, AC4)
+        *   **Subtask:** Implement "Save" and "Cancel" buttons, following button hierarchy patterns. (AC4)
+        *   **Subtask:** Implement client-side validation for input fields, displaying inline error messages `On Blur` and `On Submit`. (AC3, AC4)
+        *   **Subtask:** Ensure full responsiveness for desktop, tablet, and mobile views. (AC2)
+        *   **Subtask:** Implement keyboard navigation and focus management. (AC2)
+        *   **Subtask:** Integrate API calls to fetch existing CV data and submit updated data. (AC3, AC4)
 
 **2. Backend Development: API Endpoints & Logic**
-    *   **Task:** Develop or extend FastAPI endpoints for CV profile management.
-        *   **Subtask:** Define new Pydantic schemas in `backend/app/schemas/` for `CVProfileRead` and `CVProfileUpdate` (or similar) to handle data exchange for profile editing.
+    *   **Task:** Develop or extend FastAPI endpoints for CV profile management. (AC3, AC4)
+        *   **Subtask:** Define new Pydantic schemas in `backend/app/schemas/` for `CVProfileRead` and `CVProfileUpdate` (or similar) to handle data exchange for profile editing. (AC3, AC4)
         *   **Subtask:** Create or update API endpoints in `backend/app/api/endpoints/documents.py` (or a dedicated `profile.py`) for:
-            *   `GET /cv_documents/{cv_id}/profile`: Retrieve parsed CV details for editing.
-            *   `PUT /cv_documents/{cv_id}/profile`: Update the parsed CV details.
-        *   **Subtask:** Implement input validation for incoming data using Pydantic models. (Ref: `architecture.md` - Input Validation)
-        *   **Subtask:** Implement `CRUD` operations in `backend/app/crud/` to interact with the PostgreSQL database. This will involve fetching and updating the `parsed_sections_json` field of the `CV Document` model.
-        *   **Subtask:** Ensure all endpoints adhere to `snake_case` naming conventions. (Ref: `architecture.md` - Naming Conventions)
-        *   **Subtask:** Implement robust error handling using FastAPI's `HTTPException` and standardized error responses. (Ref: `architecture.md` - Error Handling)
-        *   **Subtask:** Implement structured logging for API requests and database operations. (Ref: `architecture.md` - Observability and Monitoring)
-        *   **Subtask:** Apply `OAuth2/OpenID Connect` for securing endpoints, ensuring only the owner of the `cv_id` can modify their profile. (Ref: `architecture.md` - Security Architecture)
+            *   `GET /cv_documents/{cv_id}/profile`: Retrieve parsed CV details for editing. (AC3)
+            *   `PUT /cv_documents/{cv_id}/profile`: Update the parsed CV details. (AC4)
+        *   **Subtask:** Implement input validation for incoming data using Pydantic models. (AC4)
+        *   **Subtask:** Implement `CRUD` operations in `backend/app/crud/` to interact with the PostgreSQL database. This will involve fetching and updating the `parsed_sections_json` field of the `CV Document` model. (AC3, AC4)
+        *   **Subtask:** Ensure all endpoints adhere to `snake_case` naming conventions. (AC3, AC4)
+        *   **Subtask:** Implement robust error handling using FastAPI's `HTTPException` and standardized error responses. (AC3, AC4)
+        *   **Subtask:** Implement structured logging for API requests and database operations. (AC3, AC4)
+        *   **Subtask:** Apply `OAuth2/OpenID Connect` for securing endpoints, ensuring only the owner of the `cv_id` can modify their profile. (AC3, AC4)
 
-**3. Database Updates (if necessary)**
-    *   **Task:** Review and confirm `CV Document` model in `backend/app/models/` supports `parsed_sections_json` for editing.
-        *   **Subtask:** If schema changes are required for `CV Document` (e.g., adding new fields to `parsed_sections_json` structure), create Alembic migration.
+**3. Database Updates (if necessary)** (AC3, AC4)
+    *   **Task:** Review and confirm `CV Document` model in `backend/app/models/` supports `parsed_sections_json` for editing. (AC3, AC4)
+        *   **Subtask:** If schema changes are required for `CV Document` (e.g., adding new fields to `parsed_sections_json` structure), create Alembic migration. (AC3, AC4)
 
-**4. Testing**
+**4. Testing** (AC1, AC2, AC3, AC4)
     *   **Task:** Develop comprehensive tests for the new functionality. (Ref: `architecture.md` - Quality Assurance)
-        *   **Subtask:** **Frontend Unit Tests:** Write unit tests for the `ProfileEditorForm` component using a framework like Jest/React Testing Library, covering state changes, input handling, and rendering.
-        *   **Frontend Integration Tests:** Test the integration of the form with the API client.
-        *   **Backend Unit Tests:** Write unit tests for new/modified CRUD operations and utility functions.
-        *   **Backend Integration Tests:** Write integration tests for the API endpoints using `pytest`, ensuring correct data retrieval and updates, and proper error handling. (Ref: `backend/tests/`)
-        *   **Accessibility Tests:** Perform manual keyboard navigation and screen reader tests on the profile editing interface. (Ref: `ux-design-specification.md` - Accessibility Strategy)
-        *   **Performance Tests:** Basic load testing on the new backend endpoints to ensure `User Interaction Latency` goals are met.
+        *   **Subtask:** **Frontend Unit Tests:** Write unit tests for the `ProfileEditorForm` component using a framework like Jest/React Testing Library, covering state changes, input handling, and rendering. (AC2, AC3, AC4)
+        *   **Subtask:** **Frontend Integration Tests:** Test the integration of the form with the API client. (AC2, AC3, AC4)
+        *   **Subtask:** **Backend Unit Tests:** Write unit tests for new/modified CRUD operations and utility functions. (AC3, AC4)
+        *   **Subtask:** **Backend Integration Tests:** Write integration tests for the API endpoints using `pytest`, ensuring correct data retrieval and updates, and proper error handling. (AC1, AC2, AC3, AC4)
+        *   **Subtask:** **Accessibility Tests:** Perform manual keyboard navigation and screen reader tests on the profile editing interface. (AC2, AC3)
+        *   **Subtask:** **Performance Tests:** Basic load testing on the new backend endpoints to ensure `User Interaction Latency` goals are met. (AC2, AC3, AC4)
 
-**5. Documentation**
-    *   **Task:** Update API documentation for new endpoints.
-        *   **Subtask:** Verify FastAPI's automatic OpenAPI documentation reflects the new endpoints and schemas.
+**5. Documentation** (AC3, AC4)
+    *   **Task:** Update API documentation for new endpoints. (AC3, AC4)
+        *   **Subtask:** Verify FastAPI's automatic OpenAPI documentation reflects the new endpoints and schemas. (AC3, AC4)
 
 ## Dev Notes
 
@@ -102,7 +102,7 @@ So that I can correct any parsing errors or add missing details.
 *   **Feedback Patterns:** Clear feedback (e.g., success toasts for saved changes) is essential.
 
 **Learnings from Previous Story (1-1-upload-cv-text-only):**
-Previous story not yet implemented. This story is dependent on the output of "Story 1.1: Upload CV (Text-only)". The parsing mechanism of Story 1.1 will directly influence the data available for manual editing in Story 1.2.
+Previous story not yet implemented, but this story has a direct dependency on "Story 1.1: Upload CV (Text-only)". The parsing mechanism and output of Story 1.1 will directly influence the data available for manual editing in Story 1.2.
 
 ### Project Structure Notes
 
@@ -140,6 +140,12 @@ The parsing output from Story 1.1 will directly feed into the input for this sto
 *   [Source: docs/ux-design-specification.md#7. UX Pattern Decisions]
 *   [Source: docs/ux-design-specification.md#6. Component Library]
 *   [Source: docs/epics.md#Epic 1: Core Profile Management]
+
+### Change Log
+
+| Date       | Version | Change Description | Author     |
+| ---------- | ------- | ------------------ | ---------- |
+| mandag 8. desember 2025 | 1.0     | Initial draft generated | Gemini CLI |
 
 ## Dev Agent Record
 
