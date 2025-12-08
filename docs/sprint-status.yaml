@@ -1,0 +1,52 @@
+# generated: 2025-12-04
+# project: KI kveldstid
+# project_key: KI kveldstid
+# tracking_system: file-system
+# story_location: C:\Users\morte\OneDrive - Høgskolen i Molde\Programering med KI\KI kveldstid siste versjon\SG-KI-kveldstid\docs
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic exists in epic file but not contexted
+#   - contexted: Epic tech context created (required before drafting stories)
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - drafted: Story file created in stories folder
+#   - ready-for-dev: Draft approved and story context created
+#   - in-progress: Developer actively working on implementation
+#   - review: Under SM review (via code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - completed: Retrospective has been done
+#
+# WORKFLOW NOTES:
+# ===============
+# - Epics should be 'contexted' before stories can be 'drafted'
+# - Stories can be worked in parallel if team capacity allows
+# - SM typically drafts next story after previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', SM reviews, then Dev moves to 'done'
+
+generated: 2025-12-04
+project: KI kveldstid
+project_key: KI kveldstid
+tracking_system: file-system
+story_location: C:\Users\morte\OneDrive - Høgskolen i Molde\Programering med KI\KI kveldstid siste versjon\SG-KI-kveldstid\docs
+
+development_status:
+  epic-1: backlog
+  1-1-upload-cv-text-only: done
+  1-2-manually-edit-profile: drafted
+  epic-1-retrospective: completed
+
+  epic-2: backlog
+  2-1-input-job-advertisement: backlog
+  2-2-semantic-matching-of-cv-to-job-ad: backlog
+  2-3-basic-gap-table: backlog
+  epic-2-retrospective: optional
+
+  epic-3: backlog
+  3-1-simple-cover-letter-generation-view: backlog
+  epic-3-retrospective: optional
